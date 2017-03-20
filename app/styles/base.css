@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{ padding:0; margin:0; }
+body,h1,h2,h3,h4,h5,h6,p,div,ul,ol,li,dt,dd,dl,i,em,strong,b,form{ font-size:12px; font-family:Verdana, Geneva, sans-serif 'Microsoft Yahei';}
+ul,ol,dl{ list-style:none;}
+a{ color:#000; text-decoration:none;}
+a img{ border:0;vertical-align:top;}
+i,em{ font-style:normal;}
+b,strong{ font-weight:normal;}
+input,textarea{ outline:none; outline:none; resize:none;}
+.fl{ float:left;display:inline;}
+.fr{ float:right;display:inline;}
+.por{ position:relative;}
+.clearFix:after{ display:block; content:''; clear:both;}
+.clearFix{ zoom:1;}

@@ -9,4 +9,17 @@
  * Main module of the application.
  */
 angular
-  .module('hotelApp', []);
+  .module('hotelApp', ["ui.router"])
+  .config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+		$stateProvider
+			.state("nav",{
+				url:"/nav",
+				templateUrl:"views/nav.html"
+			})
+		$stateProvider
+			.state("login",{
+				url:"/login",
+				templateUrl:"views/login.html"
+			})
+		$urlRouterProvider.otherwise("/nav");
+	}]);
