@@ -21,5 +21,10 @@ angular
 				url:"/login",
 				templateUrl:"views/login.html"
 			})
-		$urlRouterProvider.otherwise("/nav");
+		$stateProvider
+			.state("section",{
+				url:"/section",
+				templateUrl:"views/section.html"
+			})
+		$urlRouterProvider.otherwise("/section");
 	}]);
