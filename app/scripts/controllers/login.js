@@ -32,8 +32,7 @@ angular.module('hotelApp')
 						'password': $scope.dl._password
 					}
 				}).then(function(data) {
-					console.log(data)
-					$state.go()
+					$state.go("nav.section")
 				}, function() {
                         
 				})
@@ -55,8 +54,7 @@ angular.module('hotelApp')
 						
 					}
 				}).then(function(data) {
-					alert("123")
-					console.log(data)
+					
 				}, function() {
 
 				})
