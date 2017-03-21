@@ -1,5 +1,5 @@
 angular.module('hotelApp')
-	.controller("sh-main", ["$scope", '$http', function($scope, $http) {
+	.controller("sh-main", ["$scope", '$http','$state', function($scope, $http,$state) {
 		$scope.req = '^[0-9]*$';
 		$scope.log = true;
 		$scope._zhuce = false;
