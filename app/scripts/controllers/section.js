@@ -14,6 +14,8 @@ angular.module('hotelApp')
 				method:"get",
 			}).then(function(data) {
 				$scope.item = data.data;
+//				console.log(data)
+
 				for(var i=0;i<data.data.length;i++){
 					// 类型
 					if(data.data[i].leixing=="a"){
@@ -27,14 +29,15 @@ angular.module('hotelApp')
 					}
 					//状态
 					if(data.data[i].zhuangtai=="0"){
-						data.data[i].zhuangtai="空房"
+						data.data[i].zhuangtai="空房";
 					}else if(data.data[i].zhuangtai=="1"){
-						data.data[i].zhuangtai="已预订"
+						data.data[i].zhuangtai="已预订";
 					}else if(data.data[i].zhuangtai=="2"){
-						data.data[i].zhuangtai="已入住"
+						data.data[i].zhuangtai="已入住";
 					}else if(data.data[i].zhuangtai=="3"){
-						data.data[i].zhuangtai="退房"
+						data.data[i].zhuangtai="退房";
 					}
+					
 				}
 			}, function() {
 				

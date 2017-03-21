@@ -9,22 +9,36 @@
  * Main module of the application.
  */
 angular
-  .module('hotelApp', ["ui.router",'ngMessages'])
-  .config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+	.module('hotelApp', ["ui.router", 'ngMessages'])
+	.config(["$stateProvider", "$urlRouterProvider", function($stateProvider, $urlRouterProvider) {
+
+
 		$stateProvider
-			.state("nav",{
-				url:"/nav",
-				templateUrl:"views/nav.html"
-			})
+			.state("login", {
+				url: "/login",
+				views: {
+					main: {
+						templateUrl: "views/login.html"
+					}
+				}
+			});
 		$stateProvider
-			.state("login",{
-				url:"/login",
-				templateUrl:"views/login.html"
-			})
+			.state("nav", {
+				url: "/nav",
+				views: {
+					main: {
+						templateUrl: "views/nav.html"
+					}
+				}
+			});
 		$stateProvider
-			.state("section",{
-				url:"/section",
-				templateUrl:"views/section.html"
-			})
-		$urlRouterProvider.otherwise("/login");
+			.state("nav.section", {
+				url: "/section",
+				views: {
+					bottom: {
+						templateUrl: "views/section.html"
+					}
+				}
+			});
+		$urlRouterProvider.when("", "/login");
 	}]);
