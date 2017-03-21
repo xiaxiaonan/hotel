@@ -1,0 +1,164 @@
+.fs-header{
+	height: 100px;
+	width: 1150px;
+	margin: 0 auto;
+}
+.fs-logo{
+	height: 43px;
+	display: block;
+	padding-top: 25px;
+	float: left;
+	font-size: 36px;
+	line-height: 43px;
+	color: #ff5b60;
+	font-weight: bold;
+}
+.fs-logo:hover{
+	color:#FF5A5F;
+}
+.fs-logo img{
+	width: 63px;
+	height: 43px;
+	margin-right: 14px;
+}
+.fs-box{
+	width: 100%;
+	min-height:500px;
+	background-image: -webkit-linear-gradient(top, #d6d9d7,#cecfce);
+	
+	min-width: 1150px;
+}
+.fs-boxa{
+	width: 1150px;
+	min-height: 500px;
+	margin: 0 auto;
+	padding:1px 0;
+	/*background: pink;*/
+}
+.fs-left{
+	width: 50%;
+	height: 420px;
+	float: left;
+}
+.fs-left h1{
+	font-size: 33px;
+	line-height: 48px;
+	display: block;
+	padding-top: 24px;
+	color: #777777;
+	padding-left: 34px;
+}
+.fs-left p{
+	line-height: 33px;
+	height: 33px;
+	display: block;
+	font-size: 17px;
+	color: #898989;
+	padding-left: 36px;
+}
+.fs-left span{
+	display: block;
+	width: 302px;
+	height: 258px;
+	margin-top: 25px;
+	margin-left: 65px;
+}
+.fs-left span img{
+	width: 100%;
+}
+.fs-right{
+	width: 50%;
+	height: 420px;
+	float: left;
+}
+.fs-righta{
+	width: 350px;
+	min-height: 343px;
+   padding-bottom: 10px;
+   	background: #afb2b0;
+	border-top: 3px solid #ff7b7f;
+	margin: 40px auto 0 auto;
+}
+.fs-righta h1{
+	height: 40px;
+	line-height: 40px;
+	display: block;
+	text-align: center;
+	font-size: 22px;
+	color: #fff;
+}
+
+.fs-name{
+	width: 250px;
+	height: 44px;
+	border: 1px solid #d9dada;
+	border-radius: 5px;
+	background: #bfc1c0;
+	box-sizing: border-box;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+	margin-bottom: 20px;
+}
+/*.fs-righta>input:hover{
+	height: 44px;
+	border: 1px solid #d9dada;
+	border-radius: 5px;
+	width: 300px;
+	background: #fff;
+	box-sizing: border-box;
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	font-size: 16px;
+	color: #fff;
+}*/
+::-webkit-input-placeholder{
+	color: #fff;
+}
+.fs-righta>div>p{
+	height: 25px;
+	line-height: 22px;
+	font-size: 15px;	
+}
+.fs-anniu{
+	width: 319px;
+	height: 42px;
+	margin: 20px auto;
+	display: block;
+}
+.fs-anniu>input{
+	display:inline-block;
+	width: 133px;
+	height: 42px;
+	box-sizing: border-box;
+	border: 1px solid #dc6561;
+	background: #e07572;
+	text-align: center;
+	font-size: 14px;
+	color: #fff;
+	line-height: 42px;
+	border-radius: 5px;
+	
+}
+.fs-anniu>input:nth-child(1){
+	float: left;
+}
+.fs-anniu>input:nth-child(2){
+	float: right;
+}
+ .green{
+    	/*background: green;*/
+    	text-align: center;
+    	color:green;
+    	
+    }
+ .red{
+            /*background: red;*/
+            color: white;
+            font-size: 12px;
+            text-align: center;
+            color:red;
+        }
