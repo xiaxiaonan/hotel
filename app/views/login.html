@@ -1,0 +1,75 @@
+
+		<div ng-controller='sh-main'>
+			<div class="fs-header">
+				<a href="javascript:;" class="fs-logo"><img src="images/logo2.gif" />北财酒店</a>
+			</div>
+			<div class="fs-box">
+				<div class="fs-boxa">
+					<div class="fs-left">
+						<h1>管房无难度&nbsp;居住有温度</h1>
+						<p>集中式公寓、分散式公寓智慧服务平台</p>
+						<span>
+						<img src="images/fs1.gif" />
+					</span>
+					</div>
+					<form name="myform" ng-submit="submit(myForm)" novalidate>
+						<!--登录-->
+						<div class="fs-right" ng-show='log'>
+							<div class="fs-righta">
+								<h1>安全登录</h1>
+								<input name="dl_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="dl.username" ng-pattern='req' />
+								<div ng-messages="myform.dl_user.$error">
+									<!--<p ng-show="myform.dl_user.$valid" class="green"></p>-->
+									<p ng-message="required" class='red'>请输入账号</p>
+									<p ng-message="pattern" class='red'>请填写数字</p>
+								</div>
+								<input name='dl_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="dl._password" ng-pattern='req'/>
+								<div ng-messages="myform.dl_pass.$error">
+									<!--<p ng-show="myform.dl_pass.$valid" class="green"></p>-->           
+									<p ng-message="required" class='red'>请输入密码</p>
+									<p ng-message="pattern" class='red'>请填写数字</p>
+								</div>
+								
+								<span class="fs-anniu">
+							<input type="submit" value="登录" ng-click='login()'>
+							<input type="button" value="注册"  ng-click='regist()'>
+						</span>
+							</div>
+						</div>
+						
+						<!--注册-->
+						<div class="fs-right" ng-show='_zhuce'>
+							<div class="fs-righta">
+								<h1>注册</h1>
+								<input name="zc_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="zc.username" ng-pattern='req' />
+								<div ng-messages="myform.zc_user.$error">
+									<!--<p ng-show="myform.zc_user.$valid" class="green"></p>-->
+									<p ng-message="required" class='red'>请输入账号</p>
+									<p ng-message="pattern" class='red'>请填写数字</p>
+						
+								</div>
+								<input name='zc_passw' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc._password" ng-pattern='req' />
+								<div ng-messages="myform.zc_passw.$error">
+									<!--<p ng-show="myform.zc_password.$valid" class="green"></p>-->
+									<p ng-message="required" class='red'>请输入密码</p>
+									<p ng-message="pattern" class='red'>请填写数字</p>
+
+								</div>
+								<input name='zc_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc.pass" ng-pattern='req' />
+								<div ng-messages="myform.zc_pass.$error">
+									<!--<p ng-show="myform.zc_pass.$valid" class="green"></p>-->                <p ng-show='sh_pas' class='red'>两次密码输入不一致</p>
+									<p ng-message="required" class='red'>请再输一次密码</p>
+									<p ng-message="pattern" class='red'>请填写数字</p>
+								</div>
+								<span class="fs-anniu">
+							<input type="button" value="登录" ng-click='logo()'>
+							<input type="submit" value="注册" ng-click="zhuce()">
+						</span>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		

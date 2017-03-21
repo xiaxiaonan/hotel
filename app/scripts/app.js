@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module('hotelApp', ["ui.router"])
+  .module('hotelApp', ["ui.router",'ngMessages'])
   .config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
 		$stateProvider
 			.state("nav",{
@@ -26,5 +26,5 @@ angular
 				url:"/section",
 				templateUrl:"views/section.html"
 			})
-		$urlRouterProvider.otherwise("/section");
+		$urlRouterProvider.otherwise("/login");
 	}]);
