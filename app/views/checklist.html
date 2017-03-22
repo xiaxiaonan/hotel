@@ -1,0 +1,99 @@
+
+		<!--入住列表-->
+		<div class="MMwrap" ng-app="myapp" ng-controller="ctrl_ruzhulist">
+			<!--left list-->
+			<div class="MM_leftnav">
+				<ul>
+					<li ng-click="news()"  ng-class="{'MMactive': isMMactive}">
+						<i class="icon-user-tie"></i> 入住列表
+					</li>
+					<li ng-click="hist()" ng-class="{'MMactive2': isMMactive2}">
+						<i class="icon-history"></i> 历史入住列表
+					</li>
+				</ul>
+			</div>
+			<!--right list-->
+			<div class="MM_right">
+				<!--1go-->
+				<div class="MM_table" ng-show="isShow">
+					<h2 class="mh2">入住信息</h2>
+					<table border="1" cellspacing="0" cellpadding="0">
+
+						<tr style="background:#AAAAAA">
+							<th>编号</th>
+							<th>房间号</th>
+							<th>姓名</th>
+							<th>身份证号码</th>
+							<th>联系方式</th>
+							<th>入住时间</th>
+							<th>到期时间</th>
+							<th>房费</th>
+							<th>押金</th>
+							<th>状态</th>
+							<th>类型</th>
+							<th>操作员</th>
+						</tr>
+
+						<tr ng-repeat="item in reqs | numberToInt">
+							<td>{{$index+1}}</td>
+							<td>{{item.fangjianhao}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.shenfenzhenghao}}</td>
+							<td>{{item.tel}}</td>
+							<td>{{item.ruzhu}}</td>
+							<td>{{item.daoqi}}</td>
+							<td>{{item.fangfei}}</td>
+							<td>{{item.yajin}}</td>
+							<td>{{item.zhuangtai}}</td>
+							<td>{{item.leixing}}</td>
+							<td>{{item.uid}}</td>
+						</tr>
+
+					</table>
+				</div>
+				<!--1end-->
+				<!--2go-->
+				<div class="MM_table" ng-show="isHide">
+					<h2 class="mh2">历史入住信息</h2>
+					<table border="1" cellspacing="0" cellpadding="0">
+
+						<tr style="background:#AAAAAA">
+							<th>编号</th>
+							<th>房间号</th>
+							<th>姓名</th>
+							<th>身份证号码</th>
+							<th>联系方式</th>
+							<th>入住时间</th>
+							<th>到期时间</th>
+							<th>房费</th>
+							<th>押金</th>
+							<th>状态</th>
+							<th>类型</th>
+							<th>操作员</th>
+						</tr>
+
+						<tr ng-repeat="item in reqs | tuiberToInt2">
+							<td>{{$index+1}}</td>
+							<td>{{item.fangjianhao}}</td>
+							<td>{{item.name}}</td>
+							<td>{{item.shenfenzhenghao}}</td>
+							<td>{{item.tel}}</td>
+							<td>{{item.ruzhu}}</td>
+							<td>{{item.daoqi}}</td>
+							<td>{{item.fangfei}}</td>
+							<td>{{item.yajin}}</td>
+							<td>{{item.zhuangtai}}</td>
+							<td>{{item.leixing}}</td>
+							<td>{{item.uid}}</td>
+
+						</tr>
+
+					</table>
+				</div>
+				<!--2end-->
+			</div>
+		</div>
+		<!--入住列表-->
+	
+	
+

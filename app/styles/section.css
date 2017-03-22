@@ -2,15 +2,16 @@
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+	margin-top:82px;
 }
 .qx_left{
-	width: 20%;
+	width: 15%;
 	height: 600px;
 	/*background: #fff;*/
 	float: left;
 }
 .qx_right{
-	width: 80%;
+	width: 85%;
 	height: auto;
 	padding: 0 30px;
 	background: #ccc;

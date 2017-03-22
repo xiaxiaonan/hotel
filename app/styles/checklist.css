@@ -1,0 +1,89 @@
+
+.MMwrap {
+	position: relative;
+	width: 100%;
+	-background: paleturquoise;
+	height: auto;
+	margin-top:82px;
+}
+
+.MM_leftnav {
+	position: fixed;
+	display: block;
+	padding: 25px 0;
+	width: 15%;
+	height: 800px;
+	float: left;
+	overflow: auto;
+	border-right: 1px solid #ddd;
+	background-color: #f5f5f5;
+}
+
+.MM_leftnav ul li {
+	margin-left: 10px;
+	width: 80%;
+	height: 35px;
+	line-height: 35px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.MM_leftnav ul li i {
+	font-size: 16px;
+}
+
+.MM_leftnav ul li:hover {
+	background: #AAAAAA;
+	border-right: 1px solid #FF5A5F;
+}
+
+.MMactive{
+	background: #AAAAAA;
+	border-right: 1px solid #FF5A5F;
+}
+
+.MMactive2 {
+	background: #AAAAAA;
+	border-right: 1px solid #FF5A5F;
+}
+
+.box {
+	background: red;
+	width: 150px;
+	height: 200px;
+	line-height: 30px;
+	padding-top: 15px;
+}
+
+.MM_right {
+	margin-right: 50px;
+	width: 75%;
+	float: right;
+}
+
+
+/*表格*/
+
+.MM_table .mh2 {
+	font-size: 18px;
+}
+
+.MM_table table {
+	width: 100%;
+}
+
+.MM_table tr:nth-child(1) {
+	background: #AAAAAA;
+	color: white
+}
+
+.MM_table tr {
+	line-height: 1.428571429;
+	color: #333;
+}
+
+.MM_table th,
+.MM_table td {
+	padding: 8px 10px;
+	text-align: center;
+}

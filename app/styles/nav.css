@@ -3,7 +3,9 @@
 	height:80px;
 	border-bottom:2px solid #FF5A5F;
 	padding:0 5%;
-	position: relative;
+	position: fixed;
+	top:0;
+	z-index: 1;
 	background:#F5F5F5;
 }
 .xn-nav .xn-logo a{

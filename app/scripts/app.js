@@ -40,5 +40,23 @@ angular
 					}
 				}
 			});
+		$stateProvider
+			.state("nav.checklist", {
+				url: "/checklist",
+				views: {
+					bottom: {
+						templateUrl: "views/checklist.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("xinxi", {
+				url: "/xinxi",
+				views: {
+					main: {
+						templateUrl: "views/xinxi.html"
+					}
+				}
+			});
 		$urlRouterProvider.when("", "/login");
 	}]);
