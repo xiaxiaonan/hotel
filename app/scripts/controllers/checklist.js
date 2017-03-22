@@ -9,11 +9,7 @@ angular.module('hotelApp')
 
 			$scope.reqs = data.data
 			$scope.user = localStorage.getItem("user");
-			//console.log($scope.reqs)
-				//123
 			
-
-			//123
 
 		}, function() {
 			alert("erro")
@@ -59,7 +55,7 @@ angular.module('hotelApp')
 		return function(data) {
 			var array = [];
 			for(var i = 0; i < data.length; i++) {
-				if(data[i].zhuangtai == '退房') {
+				if(data[i].zhuangtai == '预订') {
 					array.push(data[i]);
 				}
 			}

@@ -8,7 +8,7 @@
 						<i class="icon-user-tie"></i> 入住列表
 					</li>
 					<li ng-click="hist()" ng-class="{'MMactive2': isMMactive2}">
-						<i class="icon-history"></i> 历史入住列表
+						<i class="icon-history"></i> 预订入住列表
 					</li>
 				</ul>
 			</div>
@@ -54,7 +54,7 @@
 				<!--1end-->
 				<!--2go-->
 				<div class="MM_table" ng-show="isHide">
-					<h2 class="mh2">历史入住信息</h2>
+					<h2 class="mh2">预订入住信息</h2>
 					<table border="1" cellspacing="0" cellpadding="0">
 
 						<tr style="background:#AAAAAA">
@@ -72,7 +72,7 @@
 							<th>操作员</th>
 						</tr>
 
-						<tr ng-repeat="item in reqs | tuiberToInt2">
+						<tr ng-repeat="item in reqs | tuiberToInt2 | orderBy:'fangjianhao'">
 							<td>{{$index+1}}</td>
 							<td>{{item.fangjianhao}}</td>
 							<td>{{item.name}}</td>
@@ -84,7 +84,7 @@
 							<td>{{item.yajin}}</td>
 							<td>{{item.zhuangtai}}</td>
 							<td>{{item.leixing}}</td>
-							<td>{{item.uid}}</td>
+							<td>{{user}}</td>
 
 						</tr>
 

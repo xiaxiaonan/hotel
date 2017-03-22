@@ -34,7 +34,7 @@ angular.module('hotelApp')
 
 			})
 		}
-
+			//退房
 		$scope.tui = function(id) {
 			$http({
 				url: "http://47.88.16.225:403/room?id=" + $scope.id,
@@ -60,6 +60,7 @@ angular.module('hotelApp')
 
 			})
 		}
+		//预订
 		$scope.ding = function(id) {
 			$http({
 				url: "http://47.88.16.225:403/room?id=" + $scope.id,
@@ -74,6 +75,7 @@ angular.module('hotelApp')
 
 			})
 		}
+		//入住
 		$scope.zhu = function(id) {
 
 			$http({
