@@ -18,6 +18,8 @@ angular.module('hotelApp')
 		}
 		action()
 	$scope.out =function(){
+		localStorage.clear();
 		$state.go("login");
 	}
+	$scope.user = localStorage.getItem("user");
   }] );

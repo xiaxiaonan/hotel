@@ -34,7 +34,7 @@
 							<th>操作员</th>
 						</tr>
 
-						<tr ng-repeat="item in reqs | numberToInt">
+						<tr ng-repeat="item in reqs | numberToInt | orderBy:'fangjianhao'">
 							<td>{{$index+1}}</td>
 							<td>{{item.fangjianhao}}</td>
 							<td>{{item.name}}</td>
@@ -46,7 +46,7 @@
 							<td>{{item.yajin}}</td>
 							<td>{{item.zhuangtai}}</td>
 							<td>{{item.leixing}}</td>
-							<td>{{item.uid}}</td>
+							<td>{{user}}</td>
 						</tr>
 
 					</table>

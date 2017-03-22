@@ -48,6 +48,7 @@ angular.module('hotelApp')
 							'password': $scope.dl._password
 						}
 					}).then(function(data) {
+						localStorage.setItem("user",$scope.dl.username);
 						$state.go("nav.section")
 					}, function() {
                         $scope.sh_dl_cg = true;

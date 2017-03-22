@@ -1,34 +1,30 @@
 angular.module('hotelApp')
-	.controller('xinxiCtrl', ["$scope", "$http", "$stateParams","$state", function($scope, $http, $stateParams,$state) {
+	.controller('xinxiCtrl', ["$scope", "$http", "$stateParams", "$state", function($scope, $http, $stateParams, $state) {
 		$scope.id = localStorage.getItem("xinxiid");
 		$http({
 				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "get"
 			}).then(function(data) {
 				$scope.item = data.data;
-				console.log(data)
-
-				
-				
-
+				//console.log(data)
 			}, function() {
 
 			})
 			//入住保存
 		$scope.ruzhubaocun = function(id) {
-//			alert(1);
+			//			alert(1);
 			$http({
-				url: "http://47.88.16.225:403/room?id="+$scope.id,
+				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "put",
-				data:{
-					"name":$scope.item.name,
-					"tel":$scope.item.tel,
-					"fangjianhao":$scope.item.fangjianhao,
-					"shenfenzhenghao":$scope.item.shenfenzhenghao,
-					"ruzhu":$scope.item.ruzhu,
-					"daiqi":$scope.item.daoqi,
-					"fangfei":$scope.item.fangfei,
-					"zhuangtai":$scope.item.zhuangtai
+				data: {
+					"name": $scope.item.name,
+					"tel": $scope.item.tel,
+					"fangjianhao": $scope.item.fangjianhao,
+					"shenfenzhenghao": $scope.item.shenfenzhenghao,
+					"ruzhu": $scope.item.ruzhu,
+					"daiqi": $scope.item.daoqi,
+					"fangfei": $scope.item.fangfei,
+					"zhuangtai": $scope.item.zhuangtai
 				}
 			}).then(function(data) {
 				console.log(data)
@@ -38,19 +34,19 @@ angular.module('hotelApp')
 
 			})
 		}
-		
-		
+
 		$scope.tui = function(id) {
 			$http({
-				url: "http://47.88.16.225:403/room?id="+$scope.id,
+				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "put",
-				data:{
-					"name":"",
-					"tel":"",
-					"ruzhu":"",
-					"daiqi":"",
-					"fangfei":"",
-					"zhuangtai":"空房"
+				data: {
+					"name": "",
+					"tel": "",
+					"shenfenzhenghao":"",
+					"ruzhu": "",
+					"daiqi": "",
+					"fangfei": "",
+					"zhuangtai": "空房"
 				}
 			}).then(function(data) {
 				$scope.item.name = "";
@@ -66,10 +62,10 @@ angular.module('hotelApp')
 		}
 		$scope.ding = function(id) {
 			$http({
-				url: "http://47.88.16.225:403/room?id="+$scope.id,
+				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "put",
-				data:{
-					"zhuangtai":"预订"
+				data: {
+					"zhuangtai": "预订"
 				}
 			}).then(function(data) {
 				$scope.item.zhuangtai = "预订";
@@ -79,12 +75,12 @@ angular.module('hotelApp')
 			})
 		}
 		$scope.zhu = function(id) {
-			
+
 			$http({
-				url: "http://47.88.16.225:403/room?id="+$scope.id,
+				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "put",
-				data:{
-					"zhuangtai":"入住"
+				data: {
+					"zhuangtai": "入住"
 				}
 			}).then(function(data) {
 				$scope.item.zhuangtai = "入住";
@@ -92,5 +88,8 @@ angular.module('hotelApp')
 			}, function() {
 
 			})
+		}
+		$scope.hui = function() {
+			$state.go("nav.section");
 		}
 	}]);

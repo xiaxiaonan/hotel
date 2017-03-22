@@ -8,6 +8,7 @@ angular.module('hotelApp')
 		}).then(function(data) {
 
 			$scope.reqs = data.data
+			$scope.user = localStorage.getItem("user");
 			//console.log($scope.reqs)
 				//123
 			
