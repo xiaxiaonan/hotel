@@ -9,13 +9,35 @@
 	height: 600px;
 	/*background: #fff;*/
 	float: left;
+	position: fixed;
+	top:80px;
+	
 }
+.qx_left h1{
+	width: 100%;
+	font-size: 18px;
+	line-height: 50px;
+	margin-top: 5px;
+	text-align: center;
+	border-right: 2px solid #FF5A5F;
+}
+.qx_left ul li{
+	text-align: center;
+	-font-size: 14px;	
+	line-height: 40px;
+}
+.qx_left ul li:hover{
+	   background: #AAAAAA;
+    border-right: 1px solid #FF5A5F;
+} 
+
 .qx_right{
 	width: 85%;
 	height: auto;
 	padding: 0 30px;
 	background: #ccc;
 	float: left;
+	margin-left:15%;
 }
 .qx_nav{
 	width: 100%;
