@@ -1,60 +1,51 @@
 <div ng-controller="xinxiCtrl">
-	<h1 class="fs-title">用户信息(房间号)</h1>
+	<h1 class="fs-title">客户信息({{item.fangjianhao}})</h1>
 	<div class="fs-an">
-		<a href="javascript:">退房</a>
-		<a href="javascript:">订房</a>
+		<a href="javascript:" ng-click="tui()">退房</a>
+		<a href="javascript:" ng-click="ding()">订房</a>
+		<a href="javascript:" ng-click="zhu()">入住</a>
 	</div>
 	<div class="fs-big">
 		<ul class="fs-tel">
 			<li>
 				<p>姓名</p>
-				<input type="text" value="" />
+				<input type="text" value="{{item.name}}" ng-model="item.name"/>
 			</li>
 			<li>
 				<p>身份证号</p>
-				<input type="text" value="" /><b></b>
+				<input type="text" value="{{item.shenfenzhenghao}}"  ng-model="item.shenfenzhenghao"/><b></b>
 			</li>
 			<li>
 				<p>手机号</p>
-				<input type="text" value="" /><b></b>
+				<input type="text" value="{{item.tel}}"  ng-model="item.tel"/><b></b>
 			</li>
 		</ul>
 		<ul class="fs-ul">
 			<li>
 				<p>房间类型</p>
-				<select name="">
-					<option value="">豪华套房</option>
-					<option>标间</option>
-					<option>大床房</option>
-					<option>商务房</option>
-				</select>
+				<input type="text" value="{{item.leixing}}"  ng-model="item.leixing" disabled/>
 			</li>
 			<li>
 				<p>房间状态</p>
-				<select name="">
-					<option value="">空房</option>
-					<option>预订</option>
-					<option>已入住</option>
-					<option>退房</option>
-				</select>
+				<input type="text" value="{{item.zhuangtai}}"  ng-model="item.zhuangtai" disabled/>
 			</li>
 			<li>
 				<p>房费</p>
-				<input type="text" value="" /><b>元/日</b>
+				<input type="text" value="{{item.fangfei}}"  ng-model="item.fangfei"/><b>元/日</b>
 			</li>
 			<li>
 				<p>押金</p>
-				<input type="text" value="" /><b>元</b>
+				<input type="text" value="{{item.yajin}}"  ng-model="item.yajin"/><b>元</b>
 			</li>
 			<li>
 				<p>入住时间</p>
-				<input type="text" value="" /><b></b>
+				<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>
 			</li>
 			<li>
 				<p>到期时间</p>
-				<input type="text" value="" /><b></b>
+				<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>
 			</li>
 		</ul>
-		<a href="javascript:;" class="fs-bao">保存</a>
+		<a href="javascript:;" class="fs-bao" ng-click="ruzhubaocun(item.id)">保存</a>
 	</div>
 </div>

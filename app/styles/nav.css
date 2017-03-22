@@ -5,7 +5,7 @@
 	padding:0 5%;
 	position: fixed;
 	top:0;
-	z-index: 1;
+	z-index: 3;
 	background:#F5F5F5;
 }
 .xn-nav .xn-logo a{
@@ -16,6 +16,11 @@
 	position: absolute;
 	top:0px;
 	left:5%;
+}
+.xn-nav .xn-logo a .xn-logo{
+	width: 63px;
+	height: 43px;
+	margin:20px 10px 0 0;
 }
 .xn-nav .xn-logo a:hover{
 	text-decoration: none;
@@ -60,4 +65,54 @@
 .xn-nav .xn-ul li:hover{
 	background:#FF5A5F;
 	color:#fff;
+}
+.xn-nav .xn-ul li:nth-child(3){
+	position: relative;
+	
+}
+.xn-nav .xn-ul li b.fs-san{
+	font-size: 28px;
+    position: absolute;
+    color: #FF5A5F;   
+    top: -29px;
+    left: 73px;
+}
+.xn-nav .xn-ul li span{
+	width: 180px;
+	height: 120px;
+	padding-top: 20px;
+	display: block;
+	position: absolute;
+	top: 88px;
+    left: -55px;
+	background: #FF5A5F;
+	border-radius: 5px;
+}
+.xn-nav .xn-ul li span p{
+	color: #fff;
+	text-align: left;
+	padding-left: 15px;
+	line-height: 30px;
+	margin-bottom: 15px;
+	display: block;
+	font-size: 12px;
+}
+.xn-nav .xn-ul li span p>b{
+	margin-left: 5px;
+}
+.xn-nav .xn-ul li span input{
+	width: 70px;
+	height: 28px;
+	margin-left: 60px;
+	line-height: 28px;
+	text-align: center;
+	font-size: 12px;
+	color: #fff;
+	background: #DCDCDC;
+	border-radius: 3px;
+	outline: none;
+	border: none;
+	border: 1px solid #ccc;
+	color: #000;
+
 }

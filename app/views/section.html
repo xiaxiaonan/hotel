@@ -8,7 +8,7 @@
 		<div class="qx_right">
 			<div class="qx_nav"></div>
 			<ul class="qx_list" id="list">
-				<li  ng-repeat="a in item" ng-click="xinxi(a.id)" ng-mouseover="hover = true" ng-mouseleave="hover = false" ng-class="{qx_white:a.zhuangtai=='空房',qx_yellow:a.zhuangtai=='已入住',qx_hui:a.zhuangtai=='退房',qx_red:a.zhuangtai=='已预订'}" >
+				<li  ng-repeat="a in item | orderBy:'fangjianhao'" ng-click="xinxi(a.id)" ng-mouseover="hover = true" ng-mouseleave="hover = false" ng-class="{qx_white:a.zhuangtai=='空房',qx_yellow:a.zhuangtai=='入住',qx_hui:a.zhuangtai=='退房',qx_red:a.zhuangtai=='预订'}" >
 					<h4>{{a.fangjianhao}}</h4>
 					<i>{{a.zhuangtai}}</i>
 					<b>{{a.leixing}}</b>
@@ -21,7 +21,7 @@
 							</li>
 							<li>
 								<i>证件号:</i>
-								<p>{{a.zhengjianhao}}</p>
+								<p>{{a.shenfenzhenghao}}</p>
 							</li>
 							<li>
 								<i>住房类型:</i>
