@@ -78,11 +78,41 @@ angular.module('hotelApp')
 			//入住保存
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
+				if($scope.item.name==''  || $scope.item.tel=='' || $scope.item.shenfenzhenghao=='' ) {
+					alert(1)
+				} else {
+					$http({
+						url: "http://47.88.16.225:403/room?id=" + $scope.id,
+						method: "put",
+						data: {
+							"name": $scope.item.name,
+							"tel": $scope.item.tel,
+							"fangjianhao": $scope.item.fangjianhao,
+							"shenfenzhenghao": $scope.item.shenfenzhenghao,
+							"ruzhu": localStorage.ruzhuTimer,
+							"daoqi": localStorage.daoqiTimer,
+							"fangfei": $scope.item.fangfei,
+							"zhuangtai": $scope.item.zhuangtai,
+							"uid": localStorage.getItem("user")
+						}
+					}).then(function(data) {
+						console.log(data)
+						$state.go("nav.section");
 
-				$http({
-					url: "http://47.88.16.225:403/room?id=" + $scope.id,
-					method: "put",
+					}, function() {
+
+					})
+				}
+
+			}
+			//退房
+		$scope.tui = function() {
+			//提交到room2
+			$http({
+					url: "http://47.88.16.225:403/room2",
+					method: "post",
 					data: {
+
 						"name": $scope.item.name,
 						"tel": $scope.item.tel,
 						"fangjianhao": $scope.item.fangjianhao,
@@ -91,85 +121,30 @@ angular.module('hotelApp')
 						"daoqi": localStorage.daoqiTimer,
 						"fangfei": $scope.item.fangfei,
 						"zhuangtai": $scope.item.zhuangtai,
-						"uid":localStorage.getItem("user")
+						"uid": localStorage.getItem("user")
 					}
 				}).then(function(data) {
-					console.log(data)
-					$state.go("nav.section");
-
-				}, function() {
-
-				})
-			}
-			//退房
-		$scope.tui = function() {
-				//提交到room2
-				$http({
-						url: "http://47.88.16.225:403/room2",
+					alert("提交room2成功")
+					$http({
+						url: "http://47.88.16.225:403/room?id=" + $scope.id,
 						method: "post",
 						data: {
-							
-							"name": $scope.item.name,
-							"tel": $scope.item.tel,
-							"fangjianhao": $scope.item.fangjianhao,
-							"shenfenzhenghao": $scope.item.shenfenzhenghao,
-							"ruzhu": localStorage.ruzhuTimer,
-							"daoqi": localStorage.daoqiTimer,
-							"fangfei": $scope.item.fangfei,
-							"zhuangtai": $scope.item.zhuangtai
+							"name": '',
+							"tel": '',
+							"shenfenzhenghao": '',
+							"ruzhu": '',
+							"daoqi": '',
+							"zhuangtai": "空房",
+							"fangfei": ''
 						}
-					}).then(function(data) {
-						alert("提交room2成功")
-						$http({
-								url: "http://47.88.16.225:403/room?id=" + $scope.id,
-								method: "post",
-								data: {
-									"name": '',
-									"tel": '',
-									"shenfenzhenghao": '',
-									"ruzhu": '空房',
-									"daoqi":'',
-									"fangfei": '',
-									"zhuangtai": ''
-								}
-							}).then(function() {}, function() {})
-							$state.go("nav.section");
-					}, function() {
-
-					})
-					//清空room1
-			}
-			//预订
-		$scope.ding = function(id) {
-				$http({
-					url: "http://47.88.16.225:403/room?id=" + $scope.id,
-					method: "put",
-					data: {
-						"zhuangtai": "预订"
-					}
-				}).then(function(data) {
-					$scope.item.zhuangtai = "预订";
+					}).then(function() {}, function() {})
 					$state.go("nav.section");
 				}, function() {
 
 				})
-			}
-			//入住
-		$scope.zhu = function(id) {
-
-			$http({
-				url: "http://47.88.16.225:403/room?id=" + $scope.id,
-				method: "put",
-				data: {
-					"zhuangtai": "入住"
-				}
-			}).then(function(data) {
-				$scope.item.zhuangtai = "入住";
-				$state.go("nav.section");
-			}, function() {
-
-			})
+				//清空room1
 		}
+
 		$scope.hui = function() {
 			$state.go("nav.section");
 		}

@@ -12,7 +12,7 @@ angular.module('hotelApp')
 			
 
 		}, function() {
-			alert("erro")
+			
 		})
 		$scope.isMMactive = true;
 		$scope.isShow = true;
