@@ -1,4 +1,7 @@
 <div ng-controller="xinxiCtrl">
+	<div class="xn-sussce" ng-show="xnsussce" ng-click="xnhide()">请输入信息！！</div>
+	<div class="xn-sussces" ng-show="xnsussces" ng-click="xnhides()">保存成功！！</div>
+	<div class="xn-tui" ng-show="tuihide" ng-click="tuihide()">退房成功！！</div>
 	<h1 class="fs-title">客户信息({{item.fangjianhao}})</h1>
 	<div class="fs-an">
 		<a href="javascript:" ng-click="hui()">返回</a>
@@ -47,7 +50,7 @@
 			</li>
 			<li>
 				<p>房费</p>
-				<input type="text" value="{{item.fangfei}}"  ng-model="item.fangfei"/><b>元/日</b>
+				<input type="text"  ng-model="_fangfei"/><b>元</b>
 			</li>
 			<li>
 				<p>押金</p>

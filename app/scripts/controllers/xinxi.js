@@ -58,11 +58,11 @@ angular.module('hotelApp')
 
 		$('#inpstart').jeDate(start);
 		$('#inpend').jeDate(end);
-
+          
 		//或者是
 		$.jeDate('#inpstart', start);
 		$.jeDate('#inpend', end);
-
+//console.log($scope.id)
 		//时间插件end时间插件end
 		$scope.id = localStorage.getItem("xinxiid");
 		$http({
@@ -71,44 +71,66 @@ angular.module('hotelApp')
 			}).then(function(data) {
 				$scope.item = data.data;
 				//console.log(data)
-
+				$scope.tim=parseInt(localStorage.daoqiTimer - localStorage.ruzhuTimer)
+console.log($scope.tim)
+console.log(localStorage.daoqiTimer)
+console.log(localStorage.ruzhuTimer)
+              $scope._fangfei =parseInt(($scope.tim  / (1000*60*60*24)) *  $scope.item.yajin);
+              console.log(parseInt(($scope.tim  / (1000*60*60*24))))
+              localStorage.sh_fangfei=$scope.fangfei;
 			}, function() {
 
 			})
 			//入住保存
+			
+		$scope.xnsussce = false;
+		$scope.xnsussces = false;
+//		console.log(localStorage.ruzhuTimer)
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
-				if($scope.item.name==''  || $scope.item.tel=='' || $scope.item.shenfenzhenghao=='' ) {
-					alert(1)
+				if($scope.item.name == '' || $scope.item.tel == '' || $scope.item.shenfenzhenghao == '') {
+					$scope.xnsussce = true;
+					$scope.xnhide = function() {
+						$scope.xnsussce = false;
+					}
 				} else {
-					$http({
-						url: "http://47.88.16.225:403/room?id=" + $scope.id,
-						method: "put",
-						data: {
-							"name": $scope.item.name,
-							"tel": $scope.item.tel,
-							"fangjianhao": $scope.item.fangjianhao,
-							"shenfenzhenghao": $scope.item.shenfenzhenghao,
-							"ruzhu": localStorage.ruzhuTimer,
-							"daoqi": localStorage.daoqiTimer,
-							"fangfei": $scope.item.fangfei,
-							"zhuangtai": $scope.item.zhuangtai,
-							"uid": localStorage.getItem("user")
-						}
-					}).then(function(data) {
-						console.log(data)
-						$state.go("nav.section");
+					$scope.xnsussces = true;
+					$scope.xnhides = function() {
+						$scope.xnsussces = false;
+						$http({
+							url: "http://47.88.16.225:403/room?id=" + $scope.id,
+							method: "put",
+							data: {
+								"name": $scope.item.name,
+								"tel": $scope.item.tel,
+								"fangjianhao": $scope.item.fangjianhao,
+								"shenfenzhenghao": $scope.item.shenfenzhenghao,
+								"ruzhu": localStorage.ruzhuTimer,
+								"daoqi": localStorage.daoqiTimer,
+								"fangfei": $scope.item.fangfei,
+								"zhuangtai": $scope.item.zhuangtai,
+								"uid": localStorage.getItem("user")
+							}
+						}).then(function(data) {
+							//						console.log(data)
+	
+							$state.go("nav.section");
 
-					}, function() {
+						}, function() {
 
-					})
+						})
+					}
+
 				}
 
 			}
 			//退房
+		$scope.tuihide = false;
 		$scope.tui = function() {
 			//提交到room2
-			$http({
+			$scope.tuihide = function() {
+				$scope.tuihide = true;
+				$http({
 					url: "http://47.88.16.225:403/room2",
 					method: "post",
 					data: {
@@ -124,7 +146,6 @@ angular.module('hotelApp')
 						"uid": localStorage.getItem("user")
 					}
 				}).then(function(data) {
-					alert("提交room2成功")
 					$http({
 						url: "http://47.88.16.225:403/room?id=" + $scope.id,
 						method: "post",
@@ -142,7 +163,9 @@ angular.module('hotelApp')
 				}, function() {
 
 				})
-				//清空room1
+			}
+
+			//清空room1
 		}
 
 		$scope.hui = function() {
