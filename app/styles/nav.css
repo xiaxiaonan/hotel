@@ -49,13 +49,15 @@
 	position: absolute;
 	top:0px;
 	right:5%;
+	height:80px;
 }
 .xn-nav .xn-ul li{
+	height:80px;
+	padding:10px 12px 0;
 	font-size:15px;
 	display: inline-block;
 	text-align: center;
 	margin:0 15px;
-	padding:12px;
 	color:#FF5A5F;
 	font-weight:500;
 }
