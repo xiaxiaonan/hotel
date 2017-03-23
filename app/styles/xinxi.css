@@ -103,3 +103,9 @@ body{
 	margin: 20px auto 0 auto;
 	border-radius: 3px;
 }
+.fs-yz-red{
+	color:red;
+	font-size: 14px;
+	line-height: 35px;
+	padding-left: 20px;
+}
