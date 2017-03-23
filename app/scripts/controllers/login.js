@@ -73,8 +73,8 @@ angular.module('hotelApp')
 
 					}
 				}).then(function(data) {
-					alert(1)
-					console.log($scope.sh_arr)
+//					alert(1)
+//					console.log($scope.sh_arr)
 
 					//					console.log(data.data)
 					$scope.log = true;
