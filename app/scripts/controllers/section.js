@@ -9,6 +9,89 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		$scope.kong =false;
+		$scope.yu =false;
+		$scope.ru =false;
+		$scope.biao =false;
+		$scope.da =false;
+		$scope.shang =false;
+		$scope.hao =false;
+		$scope.wbm_kong=function(){
+			$scope.kong =true;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+		$scope.wbm_yu=function(){
+			$scope.kong =false;
+			$scope.yu =true;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+		$scope.wbm_ru=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =true;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+		$scope.wbm_biao=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =true;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+		$scope.wbm_da=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =true;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+		$scope.wbm_shang=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =true;
+			$scope.hao =false;
+		}
+		$scope.wbm_hao=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =true;
+		}
+		$scope.wbm_quan=function(){
+			$scope.kong =false;
+			$scope.yu =false;
+			$scope.ru =false;
+			$scope.biao =false;
+			$scope.da =false;
+			$scope.shang =false;
+			$scope.hao =false;
+		}
+
+		
+		
+		
 		$http({
 			url: "http://47.88.16.225:403/room",
 			method: "get"
@@ -16,20 +99,6 @@ angular.module('hotelApp')
 			$scope.item = data.data;
 			//				console.log(data)
 
-			for(var i = 0; i < data.data.length; i++) {
-				// 类型
-				if(data.data[i].leixing == "a") {
-					data.data[i].leixing = "豪华套房"
-				} else if(data.data[i].leixing == "b") {
-					data.data[i].leixing = "标准间"
-				} else if(data.data[i].leixing == "c") {
-					data.data[i].leixing = "大床房"
-				} else if(data.data[i].leixing == "d") {
-					data.data[i].leixing = "商务房"
-				}
-				
-
-			}
 		}, function() {
 
 		})
@@ -38,4 +107,126 @@ angular.module('hotelApp')
 			$state.go("xinxi");
 
 		}
-	}]);
+			
+	}])
+	.filter("mykongfang", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.zhuangtai.indexOf("空房") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("myyuding", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.zhuangtai.indexOf("预订") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("myruzhu", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.zhuangtai.indexOf("入住") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("mybiaozhun", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.leixing.indexOf("标准间") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("mydachuang", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.leixing.indexOf("大床房") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("myshangwu", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.leixing.indexOf("商务房") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+	.filter("myhaohua", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                /*indexOf字符串出现的位置，没有则返回-1*/
+                //方法一：
+//                if (value.phone.indexOf("555") >= 0) {
+//                    output.push(value);
+//                }
+                //方法二：
+                if (value.leixing.indexOf("豪华套房") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
+
+	

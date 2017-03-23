@@ -2,64 +2,72 @@
 	<div class="qx_center">
 		<!--left-->
 		<div class="qx_left">
-			<h1>房间状态</h1>
-			<ul>
-				<li ng-click="kongfang()">空房间</li>
-				<li ng-click="yuding()">已预定</li>
-				<li ng-click="ruzhu()">已入住</li>
-			</ul>
-			<h1>房间类型</h1>
-			<ul>
-				<li>标准间</li>
-				<li>大床房</li>
-				<li>商务房</li>
-				<li>豪华套房</li>
-			</ul>
-
+			<h1 ui-sref="nav.section" ng-click='wbm_quan()'>查看全部</h1>
+			<div >
+				<h1>房间状态</h1>
+				<ul>
+					<li ui-sref="nav.section.kongfang" ng-click='wbm_kong()' ng-class="{qx_huia:kong==true}"
+>空房间</li>
+					<li ui-sref="nav.section.yuding" ng-click='wbm_yu()' ng-class="{qx_huia:yu==true}">已预定</li>
+					<li ui-sref="nav.section.ruzhu" ng-click='wbm_ru()' ng-class="{qx_huia:ru==true}">已入住</li>
+				</ul>
+			</div>
+			<div class="">
+				<h1>房间类型</h1>
+				<ul>
+					<li ui-sref="nav.section.biaozhun" ng-click='wbm_biao()' ng-class="{qx_huia:biao==true}">标准间</li>
+					<li ui-sref="nav.section.dachuang" ng-click='wbm_da()' ng-class="{qx_huia:da==true}">大床房</li>
+					<li ui-sref="nav.section.shangwu" ng-click='wbm_shang()' ng-class="{qx_huia:shang==true}">商务房</li>
+					<li ui-sref="nav.section.haohua" ng-click='wbm_hao()' ng-class="{qx_huia:hao==true}">豪华套房</li>
+				</ul>
+			</div>
 		</div>
+
 		<!--right-->
 		<div class="qx_right">
 			<div class="qx_nav"></div>
-			<ul class="qx_list" id="list">
-				<li  ng-repeat="a in item | orderBy:'fangjianhao'" ng-click="xinxi(a.id)" ng-mouseover="hover = true" ng-mouseleave="hover = false" ng-class="{qx_white:a.zhuangtai=='空房',qx_yellow:a.zhuangtai=='入住',qx_hui:a.zhuangtai=='退房',qx_red:a.zhuangtai=='预订'}" >
-					<h4>{{a.fangjianhao}}</h4>
-					<i>{{a.zhuangtai}}</i>
-					<b>{{a.leixing}}</b>
-					<div class="hover" ng-if = "hover">
-						<i>▲</i>
-						<ul class="qx_lie">
-							<li>
-								<i>姓名:</i>
-								<p>{{a.name}}</p>
-							</li>
-							<li>
-								<i>证件号:</i>
-								<p>{{a.shenfenzhenghao}}</p>
-							</li>
-							<li>
-								<i>住房类型:</i>
-								<p>{{a.leixing}}</p>
-							</li>
-							<li>
-								<i>住房状态:</i>
-								<p>{{a.zhuangtai}}</p>
-							</li>
-							<li>
-								<i>入住时间:</i>
-								<p>{{a.ruzhu}}</p>
-							</li>
-							<li>
-								<i>到期时间:</i>
-								<p>{{a.daoqi}}</p>
-							</li>
-							<li>
-								<i>房费:</i>
-								<p>{{a.fangfei}}</p>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
+			<div ui-view="fangtai">
+				<ul class="qx_list" id="list">
+					<li  ng-repeat="a in item | orderBy:'fangjianhao'" ng-click="xinxi(a.id)" ng-mouseover="hover = true" ng-mouseleave="hover = false" ng-class="{qx_white:a.zhuangtai=='空房',qx_yellow:a.zhuangtai=='入住',qx_hui:a.zhuangtai=='退房',qx_red:a.zhuangtai=='预订'}" >
+						<h4>{{a.fangjianhao}}</h4>
+						<i>{{a.zhuangtai}}</i>
+						<b>{{a.leixing}}</b>
+						<div class="hover" ng-if = "hover">
+							<i>▲</i>
+							<ul class="qx_lie">
+								<li>
+									<i>姓名:</i>
+									<p>{{a.name}}</p>
+								</li>
+								<li>
+									<i>证件号:</i>
+									<p>{{a.shenfenzhenghao}}</p>
+								</li>
+								<li>
+									<i>住房类型:</i>
+									<p>{{a.leixing}}</p>
+								</li>
+								<li>
+									<i>住房状态:</i>
+									<p>{{a.zhuangtai}}</p>
+								</li>
+								<li>
+									<i>入住时间:</i>
+									<p>{{a.ruzhu | date:'yyyy年MM月dd日HH:mm:ss'}}</p>
+								</li>
+								<li>
+									<i>到期时间:</i>
+									<p>{{a.daoqi | date:'yyyy年MM月dd日HH:mm:ss'}}</p>
+								</li>
+								<li>
+									<i>房费:</i>
+									<p>{{a.fangfei}}</p>
+								</li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

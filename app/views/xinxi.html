@@ -52,12 +52,16 @@
 				<input type="text" value="{{item.yajin}}"  ng-model="item.yajin"/><b>元</b>
 			</li>
 			<li>
-				<p>入住时间</p>
-				<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>
+				<p>入住时间</p><input type="text" class="workinput wicon mr25" 
+	value="{{item.ruzhu | date:'yyyy年MM月dd日HH:mm:ss'}}"				
+					id="inpstart" readonly>
+				<!--<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>-->
 			</li>
 			<li>
-				<p>到期时间</p>
-				<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>
+				<p>到期时间</p><input type="text" class="workinput wicon mr25"
+				value="{{item.daoqi | date:'yyyy年MM月dd日HH:mm:ss'}}"	
+					 id="inpend" readonly>
+				<!--<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>-->
 			</li>
 		</ul>
 		</form>

@@ -1,0 +1,41 @@
+		
+			<ul class="qx_list" id="list">
+				<li  ng-repeat="a in item | myhaohua | orderBy:'fangjianhao'" ng-click="xinxi(a.id)" ng-mouseover="hover = true" ng-mouseleave="hover = false" ng-class="{qx_white:a.zhuangtai=='空房',qx_yellow:a.zhuangtai=='入住',qx_hui:a.zhuangtai=='退房',qx_red:a.zhuangtai=='预订'}" >
+					<h4>{{a.fangjianhao}}</h4>
+					<i>{{a.zhuangtai}}</i>
+					<b>{{a.leixing}}</b>
+					<div class="hover" ng-if = "hover">
+						<i>▲</i>
+						<ul class="qx_lie">
+							<li>
+								<i>姓名:</i>
+								<p>{{a.name}}</p>
+							</li>
+							<li>
+								<i>证件号:</i>
+								<p>{{a.shenfenzhenghao}}</p>
+							</li>
+							<li>
+								<i>住房类型:</i>
+								<p>{{a.leixing}}</p>
+							</li>
+							<li>
+								<i>住房状态:</i>
+								<p>{{a.zhuangtai}}</p>
+							</li>
+							<li>
+								<i>入住时间:</i>
+								<p>{{a.ruzhu}}</p>
+							</li>
+							<li>
+								<i>到期时间:</i>
+								<p>{{a.daoqi}}</p>
+							</li>
+							<li>
+								<i>房费:</i>
+								<p>{{a.fangfei}}</p>
+							</li>
+						</ul>
+					</div>
+				</li>
+			</ul>

@@ -20,11 +20,18 @@
 	margin-top: 5px;
 	text-align: center;
 	border-right: 2px solid #FF5A5F;
+	cursor: pointer;
 }
 .qx_left ul li{
 	text-align: center;
 	-font-size: 14px;	
 	line-height: 40px;
+	cursor: pointer;
+	border-right: 1px solid transparent;
+}
+.qx_huia{
+	   background: #AAAAAA;
+    border-right: 1px solid #FF5A5F;
 }
 .qx_left ul li:hover{
 	   background: #AAAAAA;
@@ -99,7 +106,7 @@
     left: 90px;
 }
 .qx_lie{
-	width: 220px;
+	width: 252px;
 	height: 300px;
 	padding: 15px 15px 0 15px;
 }

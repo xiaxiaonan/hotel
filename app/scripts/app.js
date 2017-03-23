@@ -58,5 +58,68 @@ angular
 					}
 				}
 			});
+			$stateProvider
+			.state("nav.section.kongfang", {
+				url: "/kongfang",
+				views: {
+					fangtai: {
+						templateUrl: "views/kongfang.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.yuding", {
+				url: "/yuding",
+				views: {
+					fangtai: {
+						templateUrl: "views/yuding.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.ruzhu", {
+				url: "/ruzhu",
+				views: {
+					fangtai: {
+						templateUrl: "views/ruzhu.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.biaozhun", {
+				url: "/biaozhun",
+				views: {
+					fangtai: {
+						templateUrl: "views/biaozhun.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.dachuang", {
+				url: "/dachuang",
+				views: {
+					fangtai: {
+						templateUrl: "views/dachuang.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.shangwu", {
+				url: "/shangwu",
+				views: {
+					fangtai: {
+						templateUrl: "views/shangwu.html"
+					}
+				}
+			});
+		$stateProvider
+			.state("nav.section.haohua", {
+				url: "/haohua",
+				views: {
+					fangtai: {
+						templateUrl: "views/haohua.html"
+					}
+				}
+			});
 		$urlRouterProvider.when("", "/login");
 	}]);

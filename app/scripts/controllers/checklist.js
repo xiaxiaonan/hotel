@@ -17,49 +17,71 @@ angular.module('hotelApp')
 		$scope.isMMactive = true;
 		$scope.isShow = true;
 		$scope.isHide = false;
+		$scope.isHide2 = false;
 		//显示入住列表
 		$scope.news = function() {
 				$scope.isShow = true;
 				$scope.isHide = false;
+				$scope.isHide2 = false;
 				$scope.isMMactive = true;
 				$scope.isMMactive2 = false
 			}
-			//显示入住历史列表
+	    //显示预定
 		$scope.hist = function() {
 			$scope.isShow = false;
 			$scope.isHide = true;
+			$scope.isHide2 = false;
 			$scope.isMMactive = false;
-			$scope.isMMactive2 = true
+			$scope.isMMactive2 = true;
+			$scope.isMMactive3 = false;
 		}
-
+		
+		//显示历史入住
+		$scope.lishi = function() {
+			$scope.isShow = false;
+			$scope.isHide = false;
+			$scope.isHide2 = true;
+			$scope.isMMactive = false;
+			$scope.isMMactive2 = false;
+			$scope.isMMactive3 = true;
+			//历史入住信息http
+         $http({
+         	url: "http://47.88.16.225:403/room2",
+			method: "get"
+         }).then(function(reqs){
+         	$scope.arrTlist=reqs.data
+         	console.log(reqs)
+         },function(){
+         	alert("你失败了")
+         })
+			
+		}
+		
+        
 	}])
 
 //过滤数组
 //入住和预定
-.filter("numberToInt", function() {
-
-		return function(data) {
-			var array = [];
-			for(var i = 0; i < data.length; i++) {
-				if(data[i].zhuangtai == '入住') {
-					array.push(data[i]);
-				}
-			}
-			return array;
-		}
-
-	})
+	.filter("numberToInt", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                if (value.zhuangtai.indexOf("入住") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    })
 	//退房
-	.filter("tuiberToInt2", function() {
-
-		return function(data) {
-			var array = [];
-			for(var i = 0; i < data.length; i++) {
-				if(data[i].zhuangtai == '预订') {
-					array.push(data[i]);
-				}
-			}
-			return array;
-		}
-
-	})
+	.filter("tuiberToInt2", function () {
+        return function (data) {
+            var output = [];
+            angular.forEach(data, function (value, key) {
+                if (value.zhuangtai.indexOf("预订") !== -1) {
+                    output.push(value);
+                }
+            });
+            return output;
+        }
+    });
