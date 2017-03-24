@@ -1,12 +1,12 @@
 <div ng-controller="navCtrl">
 	<nav class="xn-nav">
 		<div class="xn-logo"><a><img src="images/logo2.gif" class="xn-logo"/>楠楠酒店</a></div>
-		<div class="xn-time"><a>{{data | date:"yyyy年MM月dd日"}}</a><a>{{data | date:"HH:mm"}}{{data | date:":s"}}</a></div>
+		<div class="xn-time"><a>{{data | date:"yyyy年MM月dd日"}}</a><a>{{data | date:"HH:mm"}}{{data | date:":ss"}}</a></div>
 		<ul class="xn-ul">
-			<li ui-sref="nav.section"><i class="icon-home3"></i><br/>房态</li>
-			<li ui-sref="nav.checklist"><i class="icon-profile"></i><br/>信息</li>
+			<li ui-sref="nav.section"><i class="glyphicon glyphicon-home"></i><br/>房态</li>
+			<li ui-sref="nav.checklist"><i class="glyphicon glyphicon-list-alt"></i><br/>信息</li>
 			<li ng-mouseenter="show = true" ng-mouseleave="show = false">
-				<i class="icon-user"></i><br/>操作者	
+				<i class="glyphicon glyphicon-user"></i><br/>操作者	
 				<span ng-show="show">
 					<b class="fs-san">▲</b>
 					<p>操作者:<b>{{user}}</b></p>
