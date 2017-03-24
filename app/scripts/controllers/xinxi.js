@@ -51,6 +51,10 @@ angular.module('hotelApp')
 				window.localStorage.daoqiTimer = date.valueOf()
 					//				alert(date.valueOf());
 				start.maxDate = datas; //将结束日的初始值设定为开始日的最大日期
+				//计算房费
+				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
+
+				//计算房费
 
 			}
 
@@ -58,11 +62,11 @@ angular.module('hotelApp')
 
 		$('#inpstart').jeDate(start);
 		$('#inpend').jeDate(end);
-          
+
 		//或者是
 		$.jeDate('#inpstart', start);
 		$.jeDate('#inpend', end);
-//console.log($scope.id)
+		//console.log($scope.id)
 		//时间插件end时间插件end
 		$scope.id = localStorage.getItem("xinxiid");
 		$http({
@@ -71,21 +75,15 @@ angular.module('hotelApp')
 			}).then(function(data) {
 				$scope.item = data.data;
 				//console.log(data)
-				$scope.tim=parseInt(localStorage.daoqiTimer - localStorage.ruzhuTimer)
-console.log($scope.tim)
-console.log(localStorage.daoqiTimer)
-console.log(localStorage.ruzhuTimer)
-              $scope._fangfei =parseInt(($scope.tim  / (1000*60*60*24)) *  $scope.item.yajin);
-              console.log(parseInt(($scope.tim  / (1000*60*60*24))))
-              localStorage.sh_fangfei=$scope.fangfei;
+
 			}, function() {
 
 			})
 			//入住保存
-			
+
 		$scope.xnsussce = false;
 		$scope.xnsussces = false;
-//		console.log(localStorage.ruzhuTimer)
+		//		console.log(localStorage.ruzhuTimer)
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
 				if($scope.item.name == '' || $scope.item.tel == '' || $scope.item.shenfenzhenghao == '') {
@@ -107,14 +105,23 @@ console.log(localStorage.ruzhuTimer)
 								"shenfenzhenghao": $scope.item.shenfenzhenghao,
 								"ruzhu": localStorage.ruzhuTimer,
 								"daoqi": localStorage.daoqiTimer,
-								"fangfei": $scope.item.fangfei,
+								"fangfei": localStorage.fangfei,
 								"zhuangtai": $scope.item.zhuangtai,
 								"uid": localStorage.getItem("user")
 							}
 						}).then(function(data) {
 							//						console.log(data)
-	
-							$state.go("nav.section");
+							$http({
+								url: "http://47.88.16.225:403/room?id=" + $scope.id,
+								method: "get"
+							}).then(function(data) {
+								$scope.item = data.data;
+								//console.log(data)
+								$state.go("nav.section");
+							}, function() {
+
+							})
+							
 
 						}, function() {
 
