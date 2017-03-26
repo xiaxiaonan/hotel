@@ -1,6 +1,7 @@
 
 		<div ng-controller='sh-main'>
 			<div class='sh_yy' ng-click='sh_zz()' ng-show='sh_yy_none'></div>
+			<div class='sh_yy' ng-click='sh_zzs()' ng-show='sh_yy_nones'></div>
 			<!--<div ng-click='sh_zz()'>-->
 			<div class="fs-header">
 				<a href="javascript:;" class="fs-logo"><img src="images/logo2.gif" />楠楠酒店</a>
@@ -23,13 +24,15 @@
 								<input name="dl_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="dl.username" ng-pattern='req' />
 								<div ng-messages="dlform.dl_user.$error">
 									<!--<p ng-show="myform.dl_user.$valid" class="green"></p>-->
-									<p ng-message="required" class='red'>请输入4位数账号</p>
+									<p ng-message="required" class='red'>请输入账号</p>
+									<p ng-message="minlength" class='red'>请输入最少4位数账号</p>
 									<p ng-message="pattern" class='red'>请填写数字</p>
 								</div>
 								<input name='dl_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="dl._password" ng-pattern='req'/>
 								<div ng-messages="dlform.dl_pass.$error">
 									<!--<p ng-show="myform.dl_pass.$valid" class="green"></p>-->           
 									<p ng-message="required" class='red'>请输入4~6位密码</p>
+									<p ng-message="minlength" class='red'>请输入最少4位密码</p>
 									<p ng-message="pattern" class='red'>请填写数字</p>
 								</div>
 								
@@ -49,7 +52,8 @@
 								<input name="zc_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="zc.username" ng-pattern='req' />
 								<div ng-messages="zcform.zc_user.$error">
 									<!--<p ng-show="myform.zc_user.$valid" class="green"></p>-->
-									<p ng-message="required" class='red'>请输入4位数账号</p>
+									<p ng-message="required" class='red'>请输入账号</p>
+									<p ng-message="minlength" class='red'>请输入最少4位数账号</p>
 									<p ng-message="pattern" class='red'>请填写数字</p>
 						             <!--<p ng-message="minlength" class='red'>少了</p>-->
 								</div>
@@ -57,6 +61,7 @@
 								<div ng-messages="zcform.zc_passw.$error">
 									<!--<p ng-show="myform.zc_password.$valid" class="green"></p>-->
 									<p ng-message="required" class='red'>请输入4~6位密码</p>
+									<p ng-message="minlength" class='red'>请输入最少4位密码</p>
 									<p ng-message="pattern" class='red'>请填写数字</p>
 
 								</div>
@@ -71,7 +76,7 @@
 							<input type="submit" value="注册" ng-click="zhuce(zcform)">
 						</span>
 						<div class="fs-zhe" ng-show='sh_zc_cg'>账号已被注册</div>
-
+                        <div class="fs-zhe" ng-show='sh_zc_cgs'>{{sh_text}}</div>
 							</div>
 						</div>
 					</form>

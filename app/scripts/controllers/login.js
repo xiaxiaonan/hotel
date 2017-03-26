@@ -7,6 +7,8 @@ angular.module('hotelApp')
 		$scope.sh_dl_cg = false;
 		$scope.sh_zc_cg = false;
 		$scope.sh_yy_none = false;
+		$scope.sh_yy_nones = false;
+		$scope.sh_text='';
 		$scope.dl = {
 			username: '',
 			_password: ''
@@ -21,9 +23,18 @@ angular.module('hotelApp')
 		$scope.sh_dl_cg = false;
 		$scope.sh_zc_cg = false;
 		$scope.sh_yy_none = false;
-		$scope.zc.username=''
-		 $scope.zc._password=''
-		  $scope.zc.pass=''
+		$scope.sh_yy_nones = false;
+		$scope.zc.username='';
+		 $scope.zc._password='';
+		  $scope.zc.pass='';
+			}
+       
+       $scope.sh_zzs = function() {
+		$scope.sh_dl_cgs = false;
+		$scope.sh_zc_cgs = false;
+		$scope.sh_yy_none = false;
+		$scope.sh_yy_nones = false;
+		$scope.sh_text=''
 			}
 			//		跳登录页
 		$scope.logo = function() {
@@ -37,7 +48,7 @@ angular.module('hotelApp')
 			}
 			//		登录
 		$scope.login = function(dlform) {
-				console.log($scope.dl)
+//				console.log($scope.dl)
 					//			alert(dlform.username.$valid);
 				if(dlform.$valid) {
 					$http({
@@ -53,6 +64,7 @@ angular.module('hotelApp')
 					}, function() {
                         $scope.sh_dl_cg = true;
 					    $scope.sh_yy_none = true;
+					    $scope.dl._password=''
 					})
 				}
 
@@ -62,8 +74,21 @@ angular.module('hotelApp')
 		//		注册账号
 		$scope.zhuce = function(zcform) {
 			console.log($scope.zc)
-
-			if($scope.zc._password == $scope.zc.pass && zcform.$valid) {
+//            $scope.sh_pas = false;
+            if($scope.zc._password != $scope.zc.pass){
+				$scope.sh_pas = true;
+				
+			}else if(zcform.zc_user.$invalid){
+				$scope.sh_zc_cgs = true;
+				$scope.sh_yy_nones = true;
+				$scope.sh_text='请输入正确用户名'
+//				return
+			}else if(zcform.zc_passw.$invalid){
+				$scope.sh_zc_cgs = true;
+				$scope.sh_yy_nones = true;
+				$scope.sh_text='请输入正确密码'
+//				return
+			}else if($scope.zc._password == $scope.zc.pass && zcform.$valid) {
 				$http({
 					url: "http://47.88.16.225:403/users",
 					method: "post",
@@ -79,6 +104,10 @@ angular.module('hotelApp')
 					//					console.log(data.data)
 					$scope.log = true;
 					$scope._zhuce = false;
+//					$scope.sh_yy_none = false;
+//					$scope.sh_yy_nones = false;
+					$scope.dl.username=$scope.zc.username
+					$scope.dl._password=$scope.zc._password
 				}, function() {
 					$http({
 						url: "http://47.88.16.225:403/users",
@@ -89,6 +118,7 @@ angular.module('hotelApp')
 							if($scope.zc.username == data.data[i].username) {
 								$scope.sh_zc_cg = true;
 								$scope.sh_yy_none = true;
+//								$scope.sh_yy_nones = true;
 							}
 						}
 					}, function() {})

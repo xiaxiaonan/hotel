@@ -9,6 +9,10 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		//	未登录禁止进去此页面
+if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
+	    	 $state.go("login")
+	    }
 		$scope.kong =false;
 		$scope.yu =false;
 		$scope.ru =false;
@@ -91,7 +95,14 @@ angular.module('hotelApp')
 
 		
 		
-		
+		//loading
+		layer.load(2);
+			//此处演示关闭
+			setTimeout(function() {
+				layer.closeAll('loading');
+			}, 2000);
+	    //loading
+
 		$http({
 			url: "http://47.88.16.225:403/room",
 			method: "get"
