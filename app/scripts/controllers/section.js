@@ -9,6 +9,42 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		$scope.showtrue = function(){
+			$scope.show = true;
+		}
+		$scope.showfalse = function(){
+			$scope.show = false;
+		}
+		$scope.leixing="标准间";
+	$scope.bc = function() {
+		$http({
+			url:"http://47.88.16.225:403/room",
+			method:"post",
+			data:{
+				fangjianhao:$scope.fangjianhao,
+				zhuangtai:'空房',
+				leixing:$scope.leixing
+			}
+		}).then(function(data) {
+			$scope.show = false;
+			$http({
+				url: "http://47.88.16.225:403/room",
+				method: "get"
+			}).then(function(data) {
+				$scope.item = data.data;
+				//				console.log(data)
+				//window.location.reload();
+			}, function() {
+	
+			})
+		}, function() {
+			alert("2")
+		})
+	}
+
+		
+		
+		
 		//window.location.reload(1);
 		//	未登录禁止进去此页面
 		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){

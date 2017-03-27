@@ -1,3 +1,4 @@
+a{list-style: none;text-decoration: none;}
 .qx_center{
 	width: 100%;
 	height: auto;
@@ -153,4 +154,53 @@
 }
 .wb_tianjia:hover{
 	color: #ccc;
+}
+
+
+/*遮罩层*/
+.fs_zzc{
+	position: fixed;
+	top: 0;left: 0;
+	z-index: 4;
+	width: 100%;
+	height: 100%;
+	background: #ccc;
+}
+.fs_center{
+	width: 500px;
+    height: auto;
+    padding: 25px 0 35px 0;
+    margin: 100px auto;
+    border: 1px solid #dddddd;
+    background: #fff;
+}
+.fs-tel{
+	margin: 0 20px;
+	height: auto;
+	padding-top: 20px;
+	background: #fcf8e3;
+	border: 1px solid #faebcc;
+	position: relative;
+}
+.fs_bc{
+	display: block;
+	width: 60px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	font-size: 16px;
+	background: #ccc;
+	margin: 10px auto;
+}
+.fs_icon{
+	display: block;
+	position: absolute;
+	top: 5px;right: 5px;
+	font-size: 18px;
+	color: #ccc;
+	cursor: pointer;
+}
+.fs-tel>li>select{
+	width: 100px;
+	height: 24px;
 }

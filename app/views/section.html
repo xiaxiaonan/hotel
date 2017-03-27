@@ -1,4 +1,26 @@
 <div ng-controller="sectionCtrl">
+	<div class="fs_zzc" ng-show="show">
+		<div class="fs_center">
+			<ul class="fs-tel">
+				<i class="glyphicon glyphicon-remove-circle fs_icon" ng-click="showfalse()"></i>
+				<li>
+					<p>房间号</p>
+					<input type="text" name='user' value="{{fangjianhao}}" ng-model="fangjianhao"  />
+				</li>
+				<li>
+					<p>房间类型</p>
+					<!--<input type="text" value="{{leixing}}" ng-model="leixing"  />-->
+					<select ng-model="leixing">
+						<option>标准间</option>
+						<option>大床房</option>
+						<option>商务房</option>
+						<option>豪华套房</option>
+					</select>
+				</li>
+				<a href="javascript:;" class="fs_bc" ng-click="bc()">保存</a>
+			</ul>
+		</div>
+	</div>
 	<div class="qx_center">
 		<!--left-->
 		<div class="qx_left">
@@ -67,7 +89,7 @@
 						</div>
 					</li>
 					<li class="wb_tianjia">
-						<span class="glyphicon glyphicon-plus-sign"></span>
+						<span class="glyphicon glyphicon-plus-sign" ng-click="showtrue()"></span>
 					</li>
 				</ul>
 			</div>
