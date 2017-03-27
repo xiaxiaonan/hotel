@@ -113,6 +113,7 @@ angular
 					}
 				}
 			});
+			/*wbm*/
 		$stateProvider
 			.state("nav.section.haohua", {
 				url: "/haohua",
