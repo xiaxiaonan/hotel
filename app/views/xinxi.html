@@ -2,6 +2,10 @@
 	<div class="xn-sussce" ng-show="xnsussce" ng-click="xnhide()">请输入信息！！</div>
 	<div class="xn-sussces" ng-show="xnsussces" ng-click="xnhides()">保存成功！！</div>
 	<div class="xn-tui" ng-show="tuihide" ng-click="tuihide()">退房成功！！</div>
+	<div class="xn-truetui" ng-show="xntruetui">
+		<h1>您确认退房吗？？</h1>
+		<button ng-click="xntrue()">确认</button>  <button ng-click="xnremove()">取消</button>
+	</div>
 	<h1 class="fs-title">客户信息({{item.fangjianhao}})</h1>
 	<div class="fs-an">
 		<a href="javascript:" ng-click="hui()">返回</a>
@@ -9,66 +13,62 @@
 	</div>
 	<div class="fs-big">
 		<form name="sh_xx_form">
-		<ul class="fs-tel">
-			<li>
-				<p>姓名</p>
-				<input type="text" name='user' value="{{item.name}}" ng-model="item.name" required   ng-pattern='/[^\d]+/'/>
-				<span>
+			<ul class="fs-tel">
+				<li>
+					<p>姓名</p>
+					<input type="text" name='user' value="{{item.name}}" ng-model="item.name" required ng-pattern='/[^\d]+/' />
+					<span>
 					<i ng-show="sh_xx_form.user.$error.required" class='fs-yz-red'>* 请输入姓名</i>
 					<i ng-show="sh_xx_form.user.$error.pattern" class='fs-yz-red'>* 姓名不能为数字</i>
 				</span>
-			</li>
-			<li>
-				<p>身份证号</p>
-				<input type="text" value="{{item.shenfenzhenghao}}"  ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/'/><b></b>
-				<span>
+				</li>
+				<li>
+					<p>身份证号</p>
+					<input type="text" value="{{item.shenfenzhenghao}}" ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/' /><b></b>
+					<span>
 					<i ng-show="sh_xx_form.sh_id.$error.required" class='fs-yz-red'>* 请输入本人证件号码</i>
 					<i ng-show="sh_xx_form.sh_id.$error.pattern" class='fs-yz-red' >* 请输入有效的证件号码</i>
 				</span>
-			</li>
-			<li>
-				<p>手机号</p>
-				<input type="text" value="{{item.tel}}"  ng-model="item.tel" name='sh_phone' required  ng-pattern='/^1[34578]\d{9}$/'/><b></b>
-				<span>
+				</li>
+				<li>
+					<p>手机号</p>
+					<input type="text" value="{{item.tel}}" ng-model="item.tel" name='sh_phone' required ng-pattern='/^1[34578]\d{9}$/' /><b></b>
+					<span>
 					<i ng-show="sh_xx_form.sh_phone.$error.required" class='fs-yz-red'>* 请输入本人手机号码</i>
 					<i ng-show="sh_xx_form.sh_phone.$error.pattern" class='fs-yz-red' >* 请输入有效的手机号码</i>
 				</span>
-			</li>
-		</ul>
-		<ul class="fs-ul">
-			<li>
-				<p>房间类型</p>
-				<input type="text" value="{{item.leixing}}"  ng-model="item.leixing" disabled/>
-			</li>
-			<li>
-				<p>房间状态</p>
-				<select ng-model="item.zhuangtai">
-					<option>空房</option>
-					<option>入住</option>
-					<option>预订</option>
-				</select>
-			</li>
-			<li>
-				<p>房费</p>
-				<input type="text"  ng-model="item.fangfei" value="{{item.fangfei}}"/><b>元</b>
-			</li>
-			<li>
-				<p>押金</p>
-				<input type="text" value="{{item.yajin}}"  ng-model="item.yajin"/><b>元</b>
-			</li>
-			<li>
-				<p>入住时间</p><input type="text" class="workinput wicon mr25" 
-	value="{{item.ruzhu | date:'yyyy年MM月dd日HH:mm:ss'}}"				
-					id="inpstart" readonly>
-				<!--<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>-->
-			</li>
-			<li>
-				<p>到期时间</p><input type="text" class="workinput wicon mr25"
-				value="{{item.daoqi | date:'yyyy年MM月dd日HH:mm:ss'}}"	
-					 id="inpend" readonly>
-				<!--<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>-->
-			</li>
-		</ul>
+				</li>
+			</ul>
+			<ul class="fs-ul">
+				<li>
+					<p>房间类型</p>
+					<input type="text" value="{{item.leixing}}" ng-model="item.leixing" disabled/>
+				</li>
+				<li>
+					<p>房间状态</p>
+					<select ng-model="item.zhuangtai">
+						<option>空房</option>
+						<option>入住</option>
+						<option>预订</option>
+					</select>
+				</li>
+				<li>
+					<p>房费</p>
+					<input type="text" ng-model="item.fangfei" value="{{item.fangfei}}" /><b>元</b>
+				</li>
+				<li>
+					<p>押金</p>
+					<input type="text" value="{{item.yajin}}" ng-model="item.yajin" /><b>元</b>
+				</li>
+				<li>
+					<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy年MM月dd日HH:mm:ss'}}" id="inpstart" readonly>
+					<!--<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>-->
+				</li>
+				<li>
+					<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy年MM月dd日HH:mm:ss'}}" id="inpend" readonly>
+					<!--<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>-->
+				</li>
+			</ul>
 		</form>
 		<a href="javascript:;" class="fs-bao" ng-click="ruzhubaocun(item.id)">保存</a>
 	</div>

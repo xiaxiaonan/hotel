@@ -9,8 +9,9 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		//window.location.reload(1);
 		//	未登录禁止进去此页面
-if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
+		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 	    	 $state.go("login")
 	    }
 		$scope.kong =false;
@@ -109,7 +110,7 @@ if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 		}).then(function(data) {
 			$scope.item = data.data;
 			//				console.log(data)
-
+			//window.location.reload();
 		}, function() {
 
 		})

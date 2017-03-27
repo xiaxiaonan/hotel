@@ -1,5 +1,9 @@
 angular.module('hotelApp')
 	.controller('xinxiCtrl', ["$scope", "$http", "$stateParams", "$state", function($scope, $http, $stateParams, $state) {
+		//	未登录禁止进去此页面
+		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
+	    	 $state.go("login")
+	    }
 		//s时间插件
 		var start = {
 			format: 'YYYY年MM月DD日 hh:mm:ss',
@@ -84,17 +88,18 @@ angular.module('hotelApp')
 		$scope.xnsussce = false;
 		$scope.xnsussces = false;
 		//		console.log(localStorage.ruzhuTimer)
+		$scope.xnhide = function() {
+						$scope.xnsussce = false;
+					}
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
 				if($scope.item.name == '' || $scope.item.tel == '' || $scope.item.shenfenzhenghao == '') {
 					$scope.xnsussce = true;
-					$scope.xnhide = function() {
-						$scope.xnsussce = false;
-					}
+					
 				} else {
 					$scope.xnsussces = true;
-					$scope.xnhides = function() {
-						$scope.xnsussces = false;
+					
+						
 						$http({
 							url: "http://47.88.16.225:403/room?id=" + $scope.id,
 							method: "put",
@@ -128,12 +133,21 @@ angular.module('hotelApp')
 						})
 					}
 
-				}
+				
 
 			}
 			//退房
 		$scope.tuihide = false;
+		$scope.xntruetui = false;
+		$scope.xnremove = function(){
+			$scope.xntruetui = false;
+		}
+		
 		$scope.tui = function() {
+			$scope.xntruetui = true;
+		}
+		$scope.xntrue = function(){
+			$scope.xntruetui = false;
 			//提交到room2
 			$scope.tuihide = function() {
 				$scope.tuihide = true;
@@ -165,16 +179,16 @@ angular.module('hotelApp')
 							"zhuangtai": "空房",
 							"fangfei": ''
 						}
-					}).then(function() {}, function() {})
-					$state.go("nav.section");
+					}).then(function() {
+						$state.go("nav.section");
+					}, function() {})
+					
 				}, function() {
 
 				})
 			}
-
 			//清空room1
 		}
-
 		$scope.hui = function() {
 			$state.go("nav.section");
 		}
