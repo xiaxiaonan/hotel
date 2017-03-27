@@ -66,12 +66,17 @@ angular.module('hotelApp')
 
 		$('#inpstart').jeDate(start);
 		$('#inpend').jeDate(end);
-
+           
 		//或者是
 		$.jeDate('#inpstart', start);
 		$.jeDate('#inpend', end);
 		//console.log($scope.id)
 		//时间插件end时间插件end
+		$scope.item={
+			name:'',
+			shenfenzhenghao:'',
+			tel:''
+		}
 		$scope.id = localStorage.getItem("xinxiid");
 		$http({
 				url: "http://47.88.16.225:403/room?id=" + $scope.id,
@@ -87,17 +92,15 @@ angular.module('hotelApp')
 
 		$scope.xnsussce = false;
 		$scope.xnsussces = false;
+		$scope.sh_text=''
 		//		console.log(localStorage.ruzhuTimer)
 		$scope.xnhide = function() {
 						$scope.xnsussce = false;
 					}
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
-				if($scope.item.name == '' || $scope.item.tel == '' || $scope.item.shenfenzhenghao == '') {
-					$scope.xnsussce = true;
+			 if($scope.item.name && $scope.item.tel && $scope.item.shenfenzhenghao ){
 					
-				} else {
-					$scope.xnsussces = true;
 					
 						
 						$http({
@@ -116,6 +119,7 @@ angular.module('hotelApp')
 							}
 						}).then(function(data) {
 							//						console.log(data)
+							$scope.xnsussces = true;
 							$http({
 								url: "http://47.88.16.225:403/room?id=" + $scope.id,
 								method: "get"
@@ -131,7 +135,16 @@ angular.module('hotelApp')
 						}, function() {
 
 						})
-					}
+					}else if(!($scope.item.name)) {
+					$scope.xnsussce = true;
+					$scope.sh_text='请填写用户名'
+				}else if(!($scope.item.shenfenzhenghao)) {
+					$scope.xnsussce = true;
+					$scope.sh_text='请填写身份证号'
+				}else if(!($scope.item.tel)) {
+					$scope.xnsussce = true;
+					$scope.sh_text='请输入手机号'
+				}
 
 				
 
