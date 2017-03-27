@@ -146,7 +146,7 @@ angular.module('hotelApp')
 					$scope.sh_text='请输入手机号'
 				}
 
-				
+				//asdkj
 
 			}
 			//退房
