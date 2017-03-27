@@ -97,6 +97,7 @@ angular.module('hotelApp')
 		$scope.xnhide = function() {
 						$scope.xnsussce = false;
 					}
+		$scope.item=[]
 		$scope.ruzhubaocun = function(id) {
 				//			alert(1);
 			 if($scope.item.name && $scope.item.tel && $scope.item.shenfenzhenghao ){
@@ -126,6 +127,7 @@ angular.module('hotelApp')
 							}).then(function(data) {
 								$scope.item = data.data;
 								//console.log(data)
+//								console.log($scope.item.id)
 								$state.go("nav.section");
 							}, function() {
 
@@ -145,9 +147,6 @@ angular.module('hotelApp')
 					$scope.xnsussce = true;
 					$scope.sh_text='请输入手机号'
 				}
-
-				//asdkj
-
 			}
 			//退房
 		$scope.tuihide = false;
@@ -205,4 +204,23 @@ angular.module('hotelApp')
 		$scope.hui = function() {
 			$state.go("nav.section");
 		}
+		//删除房间
+		$scope.wb_remove_qr = function(){
+			$http({
+				url:"http://47.88.16.225:403/room/"+$scope.item.id,
+				method:"delete",
+			}).then(function(data) {
+				$scope.wb_remove_box=false;
+				$state.go("nav.section");
+			}, function() {
+			})						 
+		}
+		$scope.wb_remove_qx = function(){
+			$scope.wb_remove_box=false;						 
+		}
+	$scope.wb_remove_box=false;	
+		$scope.wb_remove = function(){
+			$scope.wb_remove_box=true;	
+		}
+		
 	}]);

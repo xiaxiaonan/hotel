@@ -6,8 +6,14 @@
 		<h1>您确认退房吗？？</h1>
 		<button ng-click="xntrue()">确认</button>  <button ng-click="xnremove()">取消</button>
 	</div>
+	<div class="xn-truetui" ng-show="wb_remove_box">
+		<h1>您确认退房吗？？</h1>
+		<button ng-click="wb_remove_qr()">确认</button>  <button ng-click="wb_remove_qx()">取消</button>
+	</div>
 	<h1 class="fs-title">客户信息({{item.fangjianhao}})</h1>
 	<div class="fs-an">
+		<button ng-click="wbm_xiugai($index)">修改房间</button> 
+		<button ng-click="wb_remove()">删除房间</button>
 		<a href="javascript:" ng-click="hui()">返回</a>
 		<a href="javascript:" ng-click="tui()">退房</a>
 	</div>
@@ -42,7 +48,7 @@
 			<ul class="fs-ul">
 				<li>
 					<p>房间类型</p>
-					<input type="text" value="{{item.leixing}}" ng-model="item.leixing" disabled/>
+					<input type="text" value="{{item.leixing}}" ng-model="item.leixing" undisabled/>
 				</li>
 				<li>
 					<p>房间状态</p>

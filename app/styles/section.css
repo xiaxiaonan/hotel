@@ -146,3 +146,11 @@
 	background: #FF5A5F !important;
 	color: #fff !important;
 }
+/* wbm */
+.wb_tianjia{
+	text-align: center;
+	font-size: 60px;
+}
+.wb_tianjia:hover{
+	color: #ccc;
+}

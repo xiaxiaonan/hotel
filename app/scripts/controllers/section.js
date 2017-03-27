@@ -14,6 +14,7 @@ angular.module('hotelApp')
 		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 	    	 $state.go("login")
 	    }
+		
 		$scope.kong =false;
 		$scope.yu =false;
 		$scope.ru =false;
@@ -114,10 +115,11 @@ angular.module('hotelApp')
 		}, function() {
 
 		})
+		$scope.item = [];
 		$scope.xinxi = function(id) {
 			localStorage.setItem("xinxiid",id)
 			$state.go("xinxi");
-
+			return false
 		}
 			
 	}])
