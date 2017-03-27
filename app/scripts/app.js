@@ -103,6 +103,7 @@ angular
 					}
 				}
 			});
+			/*wbm*/
 		$stateProvider
 			.state("nav.section.shangwu", {
 				url: "/shangwu",
