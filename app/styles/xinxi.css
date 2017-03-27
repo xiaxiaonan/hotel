@@ -216,7 +216,13 @@ body{
 }
 .wb_xiugai button{
 	outline: none;
+	padding: 2px;
 	margin-left: 15px;
+}
+.wb_xiugai p select,.wb_xiugai p input{
+	width: 150px;
+	outline: none;
+	margin-bottom: 5px;
 }
 .wb_sussce{
 	width: 100vw;
