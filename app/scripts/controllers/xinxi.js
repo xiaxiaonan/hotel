@@ -204,6 +204,33 @@ angular.module('hotelApp')
 		$scope.hui = function() {
 			$state.go("nav.section");
 		}
+		//修改房间
+		$scope.wbsussce = false;
+		$scope.wb_xiugai_show=false;
+		$scope.wb_xiugai = function(){
+			$http({
+				url:"http://47.88.16.225:403/room/"+$scope.item.id,
+				method:"put",
+				data:{
+					fangjianhao:$scope.item.fangjianhao,
+					leixing:$scope.item.leixing				
+				}
+			}).then(function(data) {
+				$scope.wbsussce = false;
+				$scope.wb_xiugai_show=false;
+				$state.go("nav.section");
+			}, function() {
+			
+			})
+		}
+        $scope.wbm_xiugai=function(){
+        	$scope.wbsussce = true;
+        	$scope.wb_xiugai_show=true;
+        }
+        $scope.wb_xiugai_qx=function(){
+        	$scope.wbsussce = false;
+        	$scope.wb_xiugai_show=false;
+        }
 		//删除房间
 		$scope.wb_remove_qr = function(){
 			$http({
