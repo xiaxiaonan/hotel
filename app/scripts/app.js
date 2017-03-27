@@ -103,6 +103,7 @@ angular
 					}
 				}
 			});
+			/*wbm*/
 		$stateProvider
 			.state("nav.section.shangwu", {
 				url: "/shangwu",
@@ -112,6 +113,7 @@ angular
 					}
 				}
 			});
+			/*wbm*/
 		$stateProvider
 			.state("nav.section.haohua", {
 				url: "/haohua",
