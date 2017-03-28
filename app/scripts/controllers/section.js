@@ -25,10 +25,14 @@ angular.module('hotelApp')
 			$scope.showb = false;
 		}
 		$scope.leixing="标准间";
+//		$scope.req = '^[0-9]*$';
+		$scope.fs_xg_text='';
 		
 	$scope.bc = function() {
 		if(!($scope.fangjianhao)){
 			$scope.showb = true;
+			$scope.fs_xg_text='请输入房间号';
+		
 		}else{
 			$http({
 				url:"http://47.88.16.225:403/room",
@@ -36,7 +40,8 @@ angular.module('hotelApp')
 				data:{
 					fangjianhao:$scope.fangjianhao,
 					zhuangtai:'空房',
-					leixing:$scope.leixing
+					leixing:$scope.leixing,
+					yajin:$scope.yajin
 				}
 			}).then(function(data) {
 				$scope.showa = false;
@@ -46,7 +51,7 @@ angular.module('hotelApp')
 					method: "get"
 				}).then(function(data) {
 					$scope.item = data.data;
-					//				console.log(data)
+//					console.log(data)
 					//window.location.reload();
 				}, function() {
 		

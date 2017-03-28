@@ -5,7 +5,7 @@
 				<i class="glyphicon glyphicon-remove-circle fs_icon" ng-click="showfalse()"></i>
 				<li>
 					<p>房间号</p>
-					<input type="text" name='user' value="{{fangjianhao}}" ng-model="fangjianhao" maxlength="4" />
+					<input type="text" name='user' value="{{fangjianhao}}" ng-model="fangjianhao"/>
 					
 				</li>
 				<li>
@@ -18,8 +18,13 @@
 						<option>豪华套房</option>
 					</select>
 				</li>
+				<li>
+					<p>押金</p>
+					<input type="text" name='user' value="{{yajin}}" ng-model="yajin"/>
+					
+				</li>
 				<div class="fs-ceng" ng-show="showb">
-					请输入房间号
+					{{fs_xg_text}}
 					<i class="glyphicon glyphicon-remove-circle fs_icon" ng-click="fscha()"></i>
 				</div>
 				<a href="javascript:;" class="fs_bc" ng-click="bc()">保存</a>
