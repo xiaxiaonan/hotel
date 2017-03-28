@@ -1,3 +1,16 @@
+.xn-local{
+	width:100vw;
+	height:100vh;
+	z-index: 13;
+	position: fixed;
+	top:0px;
+	left:0;
+	
+}
+.xn-local h1{
+	text-align: center;
+	line-height: 100vh;
+}
 a{list-style: none;text-decoration: none;}
 .qx_center{
 	width: 100%;

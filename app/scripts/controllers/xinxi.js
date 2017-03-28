@@ -76,13 +76,14 @@ angular.module('hotelApp')
 			tel:''
 		}
 		$scope.id = localStorage.getItem("xinxiid");
+		
 		$http({
 				url: "http://47.88.16.225:403/room?id=" + $scope.id,
 				method: "get"
 			}).then(function(data) {
 				$scope.item = data.data;
 				//console.log(data)
-
+				
 			}, function() {
 
 			})

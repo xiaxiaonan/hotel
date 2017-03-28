@@ -9,6 +9,7 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		$scope.xnlocal = true;
 		//	未登录禁止进去此页面
 		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 	    	 $state.go("login")
@@ -147,17 +148,12 @@ angular.module('hotelApp')
 			$scope.shang =false;
 			$scope.hao =false;
 		}
-
-		
-		
-		
-	
-
 		$http({
 			url: "http://47.88.16.225:403/room",
 			method: "get"
 		}).then(function(data) {
 			$scope.item = data.data;
+			$scope.xnlocal = false;
 			//				console.log(data)
 			//window.location.reload();
 		}, function() {
@@ -166,6 +162,7 @@ angular.module('hotelApp')
 		$scope.item = [];
 		$scope.xinxi = function(id) {
 			localStorage.setItem("xinxiid",id)
+			
 			$state.go("xinxi");
 			return false
 		}

@@ -1,12 +1,12 @@
 angular.module('hotelApp')
 	.controller("ctrl_ruzhulist", ["$scope", "$http", function($scope, $http) {
-
+		$scope.xnlocal = true;
 		//开始请求
 		$http({
 			url: "http://47.88.16.225:403/room",
 			method: "get"
 		}).then(function(data) {
-
+			$scope.xnlocal = false;
 			$scope.reqs = data.data
 			$scope.user = localStorage.getItem("user");
 			
