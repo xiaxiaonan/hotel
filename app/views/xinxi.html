@@ -39,7 +39,7 @@
 			<ul class="fs-tel">
 				<li>
 					<p>姓名</p>
-					<input type="text" name='user' value="{{item.name}}" ng-model="item.name" required ng-pattern='/[^\d]+/' />
+					<input type="text" name='user' value="{{item.name}}" ng-model="item.name" required ng-pattern='/[^\d]+/' autocomplete="off"/>
 					<span>
 					<i ng-show="sh_xx_form.user.$error.required" class='fs-yz-red'>* 请输入姓名</i>
 					<i ng-show="sh_xx_form.user.$error.pattern" class='fs-yz-red'>* 姓名不能为数字</i>
@@ -47,7 +47,7 @@
 				</li>
 				<li>
 					<p>身份证号</p>
-					<input type="text" value="{{item.shenfenzhenghao}}" ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/' /><b></b>
+					<input type="text" value="{{item.shenfenzhenghao}}" ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/'  autocomplete="off" /><b></b>
 					<span>
 					<i ng-show="sh_xx_form.sh_id.$error.required" class='fs-yz-red'>* 请输入本人证件号码</i>
 					<i ng-show="sh_xx_form.sh_id.$error.pattern" class='fs-yz-red' >* 请输入有效的证件号码</i>
@@ -55,7 +55,7 @@
 				</li>
 				<li>
 					<p>手机号</p>
-					<input type="text" value="{{item.tel}}" ng-model="item.tel" name='sh_phone' required ng-pattern='/^1[34578]\d{9}$/' /><b></b>
+					<input type="text" value="{{item.tel}}" ng-model="item.tel" name='sh_phone' required ng-pattern='/^1[34578]\d{9}$/' autocomplete="off" /><b></b>
 					<span>
 					<i ng-show="sh_xx_form.sh_phone.$error.required" class='fs-yz-red'>* 请输入本人手机号码</i>
 					<i ng-show="sh_xx_form.sh_phone.$error.pattern" class='fs-yz-red' >* 请输入有效的手机号码</i>

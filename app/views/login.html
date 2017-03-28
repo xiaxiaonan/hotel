@@ -21,14 +21,14 @@
 						<div class="fs-right" ng-show='log'>
 							<div class="fs-righta">
 								<h1>安全登录</h1>
-								<input name="dl_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="dl.username" ng-pattern='req' />
+								<input name="dl_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="dl.username" ng-pattern='req' autocomplete="off"/>
 								<div ng-messages="dlform.dl_user.$error">
 									<!--<p ng-show="myform.dl_user.$valid" class="green"></p>-->
 									<p ng-message="required" class='red'>请输入账号</p>
 									<p ng-message="minlength" class='red'>请输入最少4位数账号</p>
 									<p ng-message="pattern" class='red'>请填写数字</p>
 								</div>
-								<input name='dl_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="dl._password" ng-pattern='req'/>
+								<input name='dl_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="dl._password" ng-pattern='req' autocomplete="off"/>
 								<div ng-messages="dlform.dl_pass.$error">
 									<!--<p ng-show="myform.dl_pass.$valid" class="green"></p>-->           
 									<p ng-message="required" class='red'>请输入4~6位密码</p>
@@ -49,7 +49,7 @@
 						<div class="fs-right" ng-show='_zhuce'>
 							<div class="fs-righta">
 								<h1>注册</h1>
-								<input name="zc_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="zc.username" ng-pattern='req' />
+								<input name="zc_user" type="text" placeholder="用户名" id="name" class="fs-name" required maxlength="4" minlength="4" ng-model="zc.username" ng-pattern='req' autocomplete="off" />
 								<div ng-messages="zcform.zc_user.$error">
 									<!--<p ng-show="myform.zc_user.$valid" class="green"></p>-->
 									<p ng-message="required" class='red'>请输入账号</p>
@@ -57,7 +57,7 @@
 									<p ng-message="pattern" class='red'>请填写数字</p>
 						             <!--<p ng-message="minlength" class='red'>少了</p>-->
 								</div>
-								<input name='zc_passw' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc._password" ng-pattern='req' />
+								<input name='zc_passw' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc._password" ng-pattern='req' autocomplete="off" />
 								<div ng-messages="zcform.zc_passw.$error">
 									<!--<p ng-show="myform.zc_password.$valid" class="green"></p>-->
 									<p ng-message="required" class='red'>请输入4~6位密码</p>
@@ -65,7 +65,7 @@
 									<p ng-message="pattern" class='red'>请填写数字</p>
 
 								</div>
-								<input name='zc_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc.pass" ng-pattern='req' />
+								<input name='zc_pass' type="password" placeholder="密码" class="fs-name" required maxlength="6" minlength="4" ng-model="zc.pass" ng-pattern='req'  autocomplete="off"/>
 								<div ng-messages="zcform.zc_pass.$error">
 									<!--<p ng-show="myform.zc_pass.$valid" class="green"></p>-->                  <p ng-show='sh_pas' class='red'>两次密码输入不一致</p>
 									<p ng-message="required" class='red'>请再输一次密码</p>
