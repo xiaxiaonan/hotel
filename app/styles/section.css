@@ -164,15 +164,16 @@ a{list-style: none;text-decoration: none;}
 	z-index: 4;
 	width: 100%;
 	height: 100%;
-	background: #ccc;
+	background: rgba(229,229,229,0.8);
 }
 .fs_center{
 	width: 500px;
     height: auto;
     padding: 25px 0 35px 0;
-    margin: 100px auto;
+    margin: 200px auto;
     border: 1px solid #dddddd;
     background: #fff;
+    border-radius: 5px;
 }
 .fs-tel{
 	margin: 0 20px;
@@ -203,4 +204,29 @@ a{list-style: none;text-decoration: none;}
 .fs-tel>li>select{
 	width: 100px;
 	height: 24px;
+}
+.fs-ceng{
+	width: 200px;
+	height: 150px;
+	line-height: 150px;
+	font-size: 22px;
+	border: 2px solid #ccc;
+	background: #fff;
+	text-align: center;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -125px;
+	color: red;
+	margin-top: -75px;
+	border-radius: 5px;
+}
+.fs-ceng i{
+	width: 12px;
+	height: 12px;
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	color: #FF5A5F;
 }

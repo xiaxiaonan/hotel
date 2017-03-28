@@ -9,47 +9,59 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
+		//	未登录禁止进去此页面
+		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
+	    	 $state.go("login")
+	    }
+		
 		$scope.showtrue = function(){
-			$scope.show = true;
+			$scope.showa = true;
 		}
 		$scope.showfalse = function(){
-			$scope.show = false;
+			$scope.showa = false;
+		}
+		$scope.showb = false;
+		$scope.fscha = function(){
+			$scope.showb = false;
 		}
 		$scope.leixing="标准间";
+		
 	$scope.bc = function() {
-		$http({
-			url:"http://47.88.16.225:403/room",
-			method:"post",
-			data:{
-				fangjianhao:$scope.fangjianhao,
-				zhuangtai:'空房',
-				leixing:$scope.leixing
-			}
-		}).then(function(data) {
-			$scope.show = false;
+		if(!($scope.fangjianhao)){
+			$scope.showb = true;
+		}else{
 			$http({
-				url: "http://47.88.16.225:403/room",
-				method: "get"
+				url:"http://47.88.16.225:403/room",
+				method:"post",
+				data:{
+					fangjianhao:$scope.fangjianhao,
+					zhuangtai:'空房',
+					leixing:$scope.leixing
+				}
 			}).then(function(data) {
-				$scope.item = data.data;
-				//				console.log(data)
-				//window.location.reload();
+				$scope.showa = false;
+				$scope.fangjianhao=''
+				$http({
+					url: "http://47.88.16.225:403/room",
+					method: "get"
+				}).then(function(data) {
+					$scope.item = data.data;
+					//				console.log(data)
+					//window.location.reload();
+				}, function() {
+		
+				})
 			}, function() {
-	
+				alert("2")
 			})
-		}, function() {
-			alert("2")
-		})
+		}
 	}
 
 		
 		
 		
 		//window.location.reload(1);
-		//	未登录禁止进去此页面
-		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
-	    	 $state.go("login")
-	    }
+		
 		
 		$scope.kong =false;
 		$scope.yu =false;
