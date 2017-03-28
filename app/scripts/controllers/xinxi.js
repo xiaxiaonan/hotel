@@ -6,12 +6,12 @@ angular.module('hotelApp')
 	    }
 		//s时间插件
 		var start = {
-			 format: 'YYYY年MM月DD日 hh:mm:ss',
-			minDate: $.nowDate(0), //设定最小日期为当前日期
-			isinitVal: true,
-			festival: true,
-			ishmsVal: false,
-			maxDate: '2099-06-30 23:59:59', //最大日期
+			format: 'YYYY-MM-DD hh:mm:ss',
+		    minDate: $.nowDate(0), //设定最小日期为当前日期
+		    isinitVal:true,
+		    festival:true,
+		    ishmsVal:false,
+		    maxDate: '2099-06-30 23:59:59', //最大日期
 			choosefun: function(elem, datas) {
 				//alert(datas);
 				//日期对象
@@ -32,12 +32,12 @@ angular.module('hotelApp')
 		};
 		//          console.log($scope.aa)
 		var end = {
-			 format: 'YYYY年MM月DD日 hh:mm:ss',
-			minDate: $.nowDate(0), //设定最小日期为当前日期
-			isinitVal: true,
-			festival: true,
-			ishmsVal: false,
-			maxDate: '2099-06-30 23:59:59', //最大日期
+			 format: 'YYYY-MM-DD hh:mm:ss',
+		    minDate: $.nowDate(0), //设定最小日期为当前日期
+		    isinitVal:true,
+		    festival:true,
+		    ishmsVal:false,
+		    maxDate: '2099-06-30 23:59:59', //最大日期
 			choosefun: function(elem, datas) {
 				//日期对象
 				function getDate(strDate) {
@@ -66,8 +66,8 @@ angular.module('hotelApp')
 		$('#inpend').jeDate(end);
            
 		//或者是
-		$.jeDate('#inpstart', start);
-		$.jeDate('#inpend', end);
+//		$.jeDate('#inpstart', start);
+//		$.jeDate('#inpend', end);
 		//console.log($scope.id)
 		//时间插件end时间插件end
 		$scope.item={
