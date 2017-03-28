@@ -213,11 +213,13 @@ angular.module('hotelApp')
 				method:"put",
 				data:{
 					fangjianhao:$scope.item.fangjianhao,
-					leixing:$scope.item.leixing				
+					leixing:$scope.item.leixing,
+					yajin:$scope.item.yajin
 				}
 			}).then(function(data) {
 				$scope.wbsussce = false;
 				$scope.wb_xiugai_show=false;
+				//if(data.d)
 				$state.go("nav.section");
 			}, function() {
 			
