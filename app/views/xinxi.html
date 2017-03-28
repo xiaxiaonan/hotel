@@ -10,7 +10,8 @@
 				<option>豪华套房</option>
 			</select>
 		</p>
-		<button ng-click="wb_xiugai()">保存修改</button>
+		<p><span>押金:</span><input type="text" ng-model="item.yajin"/></p>
+		<button ng-click="wb_xiugai()"7>保存修改</button>
 		
 		<button ng-click="wb_xiugai_qx()">取消修改</button>
 	</div>
@@ -23,7 +24,7 @@
 		<button ng-click="xntrue()">确认</button>  <button ng-click="xnremove()">取消</button>
 	</div>
 	<div class="xn-truetui" ng-show="wb_remove_box">
-		<h1>您确认删除房间吗？？</h1>
+		<h1>您确认退房吗？？</h1>
 		<button ng-click="wb_remove_qr()">确认</button>  <button ng-click="wb_remove_qx()">取消</button>
 	</div>
 	<h1 class="fs-title">客户信息({{item.fangjianhao}})</h1>
