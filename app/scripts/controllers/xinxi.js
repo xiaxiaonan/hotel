@@ -6,9 +6,8 @@ angular.module('hotelApp')
 	    }
 		//s时间插件
 		var start = {
-			format: 'YYYY年MM月DD日 hh:mm:ss',
+			 format: 'YYYY年MM月DD日 hh:mm:ss',
 			minDate: $.nowDate(0), //设定最小日期为当前日期
-			insTrigger: true,
 			isinitVal: true,
 			festival: true,
 			ishmsVal: false,
@@ -33,13 +32,12 @@ angular.module('hotelApp')
 		};
 		//          console.log($scope.aa)
 		var end = {
-			format: 'YYYY年MM月DD日 hh:mm:ss',
+			 format: 'YYYY年MM月DD日 hh:mm:ss',
 			minDate: $.nowDate(0), //设定最小日期为当前日期
-			insTrigger: true,
 			isinitVal: true,
 			festival: true,
 			ishmsVal: false,
-			maxDate: '2099-06-16 23:59:59', //最大日期
+			maxDate: '2099-06-30 23:59:59', //最大日期
 			choosefun: function(elem, datas) {
 				//日期对象
 				function getDate(strDate) {
