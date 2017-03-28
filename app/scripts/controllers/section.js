@@ -150,13 +150,8 @@ angular.module('hotelApp')
 
 		
 		
-		//loading
-		layer.load(2);
-			//此处演示关闭
-			setTimeout(function() {
-				layer.closeAll('loading');
-			}, 2000);
-	    //loading
+		
+	
 
 		$http({
 			url: "http://47.88.16.225:403/room",
