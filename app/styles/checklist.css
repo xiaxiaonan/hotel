@@ -1,3 +1,6 @@
+#xnsousuo{
+	float: right;
+}
 .xn-local{
 	width:100vw;
 	height:100vh;
@@ -83,7 +86,10 @@
 .MM_table .mh2 {
 	font-size: 18px;
 }
-
+.MM_table .mh2 i{
+	float: right;
+	font-size:18px;
+}
 .MM_table table {
 	width: 100%;
 }

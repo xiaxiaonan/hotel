@@ -21,7 +21,8 @@
 	<div class="MM_right">
 		<!--1go-->
 		<div class="MM_table" ng-show="isShow">
-			<h2 class="mh2">入住信息</h2>
+			
+			<h2 class="mh2">入住信息<input type="text" name="" id="xnsousuo" value=""  ng-model="query"/><i>搜索：</i></h2>
 			<table border="1" cellspacing="0" cellpadding="0">
 
 				<tr style="background:#AAAAAA">
@@ -39,7 +40,7 @@
 					<th>操作员</th>
 				</tr>
 
-				<tr ng-repeat="item in reqs | numberToInt | orderBy:'fangjianhao'">
+				<tr ng-repeat="item in reqs | numberToInt | orderBy:'fangjianhao'| filter:query">
 					<td>{{$index+1}}</td>
 					<td>{{item.fangjianhao}}</td>
 					<td>{{item.name}}</td>
@@ -59,7 +60,7 @@
 		<!--1end-->
 		<!--2go-->
 		<div class="MM_table" ng-show="isHide">
-			<h2 class="mh2">预订入住信息</h2>
+			<h2 class="mh2">预订入住信息<input type="text" name="" id="xnsousuo" value=""  ng-model="query"/><i>搜索：</i></h2>
 			<table border="1" cellspacing="0" cellpadding="0">
 
 				<tr style="background:#AAAAAA">
@@ -78,7 +79,7 @@
 
 				</tr>
 
-				<tr ng-repeat="item in reqs | tuiberToInt2 | orderBy:'fangjianhao'">
+				<tr ng-repeat="item in reqs | tuiberToInt2 | orderBy:'fangjianhao'| filter:query">
 					<td>{{$index+1}}</td>
 					<td>{{item.fangjianhao}}</td>
 					<td>{{item.name}}</td>
@@ -99,7 +100,7 @@
 		<!--2end-->
 		<!--3go-->
 		<div class="MM_table" ng-show="isHide2">
-			<h2 class="mh2">历史入住信息</h2>
+			<h2 class="mh2">历史入住信息<input type="text" name="" id="xnsousuo" value=""  ng-model="query"/><i>搜索：</i></h2>
 			<table border="1" cellspacing="0" cellpadding="0">
 
 				<tr style="background:#AAAAAA">
@@ -118,7 +119,7 @@
 
 				</tr>
 
-				<tr ng-repeat="a in arrTlist">
+				<tr ng-repeat="a in arrTlist| filter:query">
 					<td>{{$index+1}}</td>
 					<td>{{a.fangjianhao}}</td>
 					<td>{{a.name}}</td>
