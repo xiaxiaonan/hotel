@@ -1,8 +1,11 @@
 <div ng-controller="xinxiCtrl">
-	
+	<div class="wb_ceng" ng-show="wb_showb">
+		您输入的房间号重复
+	<i class="glyphicon glyphicon-remove-circle wb_icon" ng-click="wbcha()"></i>
+	</div>
 	<div class="wb_sussce" ng-show="wbsussce"></div>
 	<div class="wb_xiugai" ng-show="wb_xiugai_show">
-		<p><span>房间号:</span><input type="text" ng-model="item.fangjianhao"/></p>
+		<p><span>房间号:</span><input type="text" ng-model="item.fangjianhao"/ disabled="disabled"></p>
 		<p><span>房间类型:</span>
 			<select ng-model="item.leixing">
 				<option>标准间</option>
@@ -12,7 +15,7 @@
 			</select>
 		</p>
 		<p><span>押金:</span><input type="text" ng-model="item.yajin"/></p>
-		<button ng-click="wb_xiugai()"7>保存修改</button>
+		<button ng-click="wb_xiugai()">保存修改</button>
 		
 		<button ng-click="wb_xiugai_qx()">取消修改</button>
 	</div>
