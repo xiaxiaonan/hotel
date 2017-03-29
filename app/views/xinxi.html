@@ -48,7 +48,7 @@
 				</li>
 				<li>
 					<p>身份证号</p>
-					<input type="text" value="{{item.shenfenzhenghao}}" ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/'  autocomplete="off" /><b></b>
+					<input type="text" value="{{item.shenfenzhenghao}}" ng-model="item.shenfenzhenghao" required name='sh_id' ng-pattern='/^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{4}$/'  autocomplete="off" /><b></b>
 					<span>
 					<i ng-show="sh_xx_form.sh_id.$error.required" class='fs-yz-red'>* 请输入本人证件号码</i>
 					<i ng-show="sh_xx_form.sh_id.$error.pattern" class='fs-yz-red' >* 请输入有效的证件号码</i>
@@ -85,11 +85,11 @@
 					<input type="text" value="{{item.yajin}}" ng-model="item.yajin" /><b>元</b>
 				</li>
 				<li>
-					<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy年MM月dd日HH:mm:ss'}}" id="inpstart" readonly>
+					<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpstart" readonly>
 					<!--<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>-->
 				</li>
 				<li>
-					<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy年MM月dd日HH:mm:ss'}}" id="inpend" readonly>
+					<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpend" readonly>
 					<!--<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>-->
 				</li>
 			</ul>
