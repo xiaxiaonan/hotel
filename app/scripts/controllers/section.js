@@ -65,6 +65,7 @@ angular.module('hotelApp')
 			}).then(function(data) {
 				$scope.showa = false;
 				$scope.fangjianhao='';
+				$scope.yajin='';
 				$http({
 					url: "http://47.88.16.225:403/room",
 					method: "get"
