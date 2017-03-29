@@ -22,9 +22,11 @@
 					</select>
 				</li>
 				<li>
-					<p>押金</p>
-					<input type="text" name='user' value="{{yajin}}" ng-model="yajin"/>
-					
+					<form name="qx_biaodan">
+						<p>押金</p>
+						<input type="text" name='user' value="{{yajin}}" ng-model="yajin" ng-pattern='req' autocomplete="off"/>
+						<span ng-show="qx_biaodan.user.$invalid" class='qx_reda'>请输入数字</span>
+					</form>
 				</li>
 				<div class="fs-ceng" ng-show="showb">
 					{{fs_xg_text}}

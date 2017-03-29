@@ -9,12 +9,13 @@
  */
 angular.module('hotelApp')
 	.controller('sectionCtrl', ["$scope", "$http", "$state", function($scope, $http, $state) {
-		$scope.xnlocal = true;
+		
 		//	未登录禁止进去此页面
 		if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 	    	 $state.go("login")
 	    }
-		
+		$scope.xnlocal = true;
+		$scope.req = '^[0-9]*$';
 		$scope.showtrue = function(){
 			$scope.showa = true;
 		}
@@ -30,11 +31,28 @@ angular.module('hotelApp')
 		$scope.fs_xg_text='';
 		
 	$scope.bc = function() {
+		$scope.num=false;
+		console.log($scope.item)
 		if(!($scope.fangjianhao)){
 			$scope.showb = true;
 			$scope.fs_xg_text='请输入房间号';
-		
+		}else if(!($scope.yajin)){
+			$scope.showb = true;
+			$scope.fs_xg_text='请输入押金';
 		}else{
+			for(var i=0;i<$scope.item.length;i++){
+				if($scope.item[i].fangjianhao==$scope.fangjianhao){
+					$scope.showb = true;
+					$scope.fs_xg_text='房间号重复';
+					return;
+				}else{
+					$scope.num=true;
+					
+				}
+			}
+		}
+		
+		if($scope.num){
 			$http({
 				url:"http://47.88.16.225:403/room",
 				method:"post",
@@ -46,7 +64,7 @@ angular.module('hotelApp')
 				}
 			}).then(function(data) {
 				$scope.showa = false;
-				$scope.fangjianhao=''
+				$scope.fangjianhao='';
 				$http({
 					url: "http://47.88.16.225:403/room",
 					method: "get"
