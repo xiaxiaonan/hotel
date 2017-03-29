@@ -169,6 +169,9 @@ body{
 	border-radius: 3px;
 	/*display: none;*/
 }
+.xn-bao:hover{
+	color:#fff;
+}
 .fs-bao span{
 	display: inline-block;
 	width:100%;

@@ -6,7 +6,7 @@ angular.module('hotelApp')
 	    }
 		//s时间插件
 		var start = {
-			format: 'YYYY-MM-DD hh:mm:ss',
+			format: 'YYYY年MM月DD日 hh:mm:ss',
 		    minDate: $.nowDate(0), //设定最小日期为当前日期
 		    isinitVal:true,
 		    festival:true,
@@ -32,7 +32,7 @@ angular.module('hotelApp')
 		};
 		//          console.log($scope.aa)
 		var end = {
-			 format: 'YYYY-MM-DD hh:mm:ss',
+			 format: 'YYYY年MM月DD日 hh:mm:ss',
 		    minDate: $.nowDate(0), //设定最小日期为当前日期
 		    isinitVal:true,
 		    festival:true,
