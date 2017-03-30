@@ -1,7 +1,33 @@
 <div ng-controller="navCtrl">
 	
 	<nav class="xn-nav">
-		<div class="xn-logo"><a><img src="images/logo2.gif" class="xn-logo"/>楠楠酒店</a></div>
+		<!--img-->
+		<div class="imgbox" ng-show="showx">
+			<div class="tank">
+				<i class="glyphicon glyphicon-remove-circle fs_icon" ng-click="showxfalse()"></i>
+				<h1>请选择logo</h1>
+				<ul>
+					<li  ng-repeat="mm in logos" ng-click="imgShow($index)">
+						<img src="{{mm.logo}}" alt="" />
+					</li>
+				</ul>
+				<hr />
+				<h1>如果不够喜欢，自己动手添加吧！</h1>
+			   <input type="file" id="demo_input" />
+			    <button id="btn" ng-click="pushImg()">提交logo</button>
+				
+				<hr />
+				<h1>请输入酒店名称</h1>
+				<ol>
+					<li><input type="text" ng-model="name"/></li> <br />
+					<li><button id="btn1" ng-click="nameShow()">保存</button></li>
+				</ol>
+				
+				
+			</div>
+	    </div>	
+	    <!--img-->
+		<div class="xn-logo"><a ng-click="showxtrue()"><img src="{{_src}}" class="xn-logo"/>{{nameC}}</a></div>
 		<div class="xn-time"><a>{{data | date:"yyyy年MM月dd日"}}</a><a>{{data | date:"HH:mm"}}{{data | date:":ss"}}</a></div>
 		<ul class="xn-ul">
 			<li ui-sref="nav.section"><i class="glyphicon glyphicon-home"></i><br/>房态</li>

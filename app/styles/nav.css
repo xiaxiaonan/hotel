@@ -1,3 +1,37 @@
+/*logoimg*/
+.imgbox{
+	position: fixed;
+	top:0;
+	left:0;
+	width: 100vw;
+	height:100vh;
+	background: rgba(0,0,0,0.5);
+	z-index: 14;
+}
+.imgbox .tank{
+	width: 680px;
+	padding: 20px;
+	overflow: hidden;
+	position: fixed;
+	left: 50%;
+	margin-left: -350px;
+	margin-top: 100px;
+	border:2px solid palegoldenrod;
+	background: whitesmoke;
+	
+	
+}
+.imgbox .tank ul{
+	overflow: hidden;
+}
+.tank ul li{
+	float: left;
+	margin: 2px 2px;
+}
+.tank hr{clear: both;border: 2px double peru;}
+.tank h1{font-family:"YouYuan";font-size: 20px;clear: both;}
+.tank button,#demo_input{width: 200px;height:30px;text-align: center;}
+/*logoimg*/
 .xn-local{
 	width:100vw;
 	height:100vh;
