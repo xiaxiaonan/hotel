@@ -76,7 +76,12 @@ angular.module('hotelApp')
 					window.localStorage.daoqiTimer = date2.valueOf()
 					//console.log(localStorage.ruzhuTimer)
 					//console.log(localStorage.daoqiTimer)
+					
 			//保存时间
+			//计算房费
+				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
+
+//计算房费
 				if($scope.item.name && $scope.item.tel && $scope.item.shenfenzhenghao) {
 
 					$http({
@@ -227,7 +232,3 @@ angular.module('hotelApp')
 
 	}]);
 
-//计算房费
-//				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
-
-//计算房费
