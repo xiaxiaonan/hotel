@@ -88,12 +88,32 @@
 					<input type="text" value="{{item.yajin}}" ng-model="item.yajin" /><b>元</b>
 				</li>
 				<li>
-					<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpstart" readonly>
-					<!--<input type="text" value="{{item.ruzhu}}"  ng-model="item.ruzhu"/><b></b>-->
+					<!--<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpstart" readonly>-->
+					<!--timer-->
+					<div class="form-group">
+						<label for="dtp_input1" class="col-md-2 control-label">入住时间:</label>
+						<div class="input-group date form_datetime col-md-5" data-date="2017-03-31T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+							<input class="form-control" size="16" type="text" value="" id="ruzhumm" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+						<input type="hidden" id="dtp_input1" value="" /><br/>
+					</div>
+					<!--timer-->
 				</li>
 				<li>
-					<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpend" readonly>
-					<!--<input type="text" value="{{item.daoqi}}"  ng-model="item.daoqi"/><b></b>-->
+					<!--<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpend" readonly>-->
+					<!--timer-->
+					<div class="form-group">
+						<label for="dtp_input1" class="col-md-2 control-label">到期时间:</label>
+						<div class="input-group date form_datetime2 col-md-5" data-date="2017-03-31T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+							<input class="form-control" size="16" type="text" value="" id="daoqimm" readonly>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+						</div>
+						<input type="hidden" id="dtp_input1" value="" /><br/>
+					</div>
+					<!--timer-->
 				</li>
 			</ul>
 		</form>

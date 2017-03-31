@@ -62,7 +62,7 @@ if(localStorage.getItem("user")=="" || localStorage.getItem("user")==undefined){
 			//alert("123")
 
 			$scope.logos = reqs.data
-			console.log(reqs)
+//			console.log(reqs)
 		}, function() {
 
 		})
