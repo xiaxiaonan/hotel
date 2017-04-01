@@ -4,7 +4,15 @@ angular.module('hotelApp')
 		if(localStorage.getItem("user") == "" || localStorage.getItem("user") == undefined) {
 			$state.go("login")
 		}
+		
+		$scope.qx_click = function(){
+			$scope.qxshow = true;
+		}
+		$scope.qx_clicka = function(){
+			$scope.qxshow = false;
+		}
 
+		
 		$scope.item = {
 			name: '',
 			shenfenzhenghao: '',
@@ -42,7 +50,7 @@ angular.module('hotelApp')
 			startView: 2,
 			forceParse: 0,
 			showMeridian: 1,
-
+			language: 'zh-CN',//中文，需要引用zh-CN.js包
 		});
          $('.form_datetime2').datetimepicker({
 			//language:  'fr',
@@ -54,8 +62,21 @@ angular.module('hotelApp')
 			startView: 2,
 			forceParse: 0,
 			showMeridian: 1,
-
+			language: 'zh-CN',//中文，需要引用zh-CN.js包
+		});	
+		$('.form_datetime3').datetimepicker({
+			//language:  'fr',
+			format: 'yyyy-mm-dd hh:i',
+			weekStart: 1,
+			todayBtn: 1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			forceParse: 0,
+			showMeridian: 1,
+			language: 'zh-CN',//中文，需要引用zh-CN.js包
 		});
+
 		//时间时间时间end
 		$scope.ruzhubaocun = function(id) {
 			//保存时间
@@ -72,14 +93,19 @@ angular.module('hotelApp')
 					var date2 = getDate($("#daoqimm").val());
 					date1 = new Date(date1);
 					date2 = new Date(date2);
-					window.localStorage.ruzhuTimer = date1.valueOf()
-					window.localStorage.daoqiTimer = date2.valueOf()
+//					window.localStorage.ruzhuTimer = date1.valueOf()
+//					window.localStorage.daoqiTimer = date2.valueOf()
+					$scope.ruzhupp=date1.valueOf()
+					$scope.daoqipp=date2.valueOf()
+
 					//console.log(localStorage.ruzhuTimer)
 					//console.log(localStorage.daoqiTimer)
 					
 			//保存时间
 			//计算房费
-				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
+			window.localStorage.fangfei = $scope.item.yajin * parseInt(($scope.daoqipp- $scope.ruzhupp) / 1000 / 86400)
+
+//				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
 
 //计算房费
 				if($scope.item.name && $scope.item.tel && $scope.item.shenfenzhenghao) {
@@ -92,8 +118,8 @@ angular.module('hotelApp')
 							"tel": $scope.item.tel,
 							"fangjianhao": $scope.item.fangjianhao,
 							"shenfenzhenghao": $scope.item.shenfenzhenghao,
-							"ruzhu": localStorage.ruzhuTimer,
-							"daoqi": localStorage.daoqiTimer,
+							"ruzhu": $scope.ruzhupp,
+							"daoqi": $scope.daoqipp,
 							"fangfei": localStorage.fangfei,
 							"zhuangtai": $scope.item.zhuangtai,
 							"uid": localStorage.getItem("user")
@@ -127,6 +153,49 @@ angular.module('hotelApp')
 					$scope.sh_text = '请输入手机号'
 				}
 			}
+		
+//续住
+$scope.timrNew=function(){
+	//保存时间
+			//日期对象
+					function getDate(strDate) {
+						var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+							function(a) {
+								return parseInt(a, 10) - 1;
+							}).match(/\d+/g) + ')');
+						return date;
+					};
+					//转化成时间戳
+					var date3 = getDate($("#xuruzhu").val());
+					var date4 = getDate($("#xuzhuNew").val());
+					date3 = new Date(date3);
+					date4 = new Date(date4);
+					$scope.ruzhuNew=date3.valueOf()
+					$scope.daoqiNew=date4.valueOf()
+
+					
+			//保存时间
+	//计算房费
+			
+				$scope.fangfeiNew = $scope.item.yajin * parseInt(($scope.daoqiNew- $scope.ruzhuNew) / 1000 / 86400)
+
+//计算房费
+	
+	$http({
+		url: "http://47.88.16.225:403/room?id=" + $scope.id,
+		method: "put",
+		data:{
+			"daoqi": $scope.daoqiNew,
+			"fangfei": $scope.fangfeiNew,
+		}
+	}).then(function(){
+		$state.go("nav.section")
+	},function(){
+		
+	})
+}
+//续住
+		
 			//退房
 		$scope.tuihide = false;
 		$scope.xntruetui = false;

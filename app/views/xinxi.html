@@ -90,8 +90,8 @@
 				<li>
 					<!--<p>入住时间</p><input type="text" class="workinput wicon mr25" value="{{item.ruzhu | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpstart" readonly>-->
 					<!--timer-->
-					<div class="form-group">
-						<label for="dtp_input1" class="col-md-2 control-label">入住时间:</label>
+					<div class="form-group" style="margin-bottom: 0;width:530px;height: 40px;margin-left: 98px;">
+						<label for="dtp_input1" class="col-md-2 control-label" style="margin: 6px 0 0 0;">入住时间:</label>
 						<div class="input-group date form_datetime col-md-5" data-date="2017-03-31T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 							<input class="form-control" size="16" type="text"  id="ruzhumm" placeholder="{{item.ruzhu | date:'yyyy-MM-dd HH:mm'}}" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
@@ -104,16 +104,40 @@
 				<li>
 					<!--<p>到期时间</p><input type="text" class="workinput wicon mr25" value="{{item.daoqi | date:'yyyy-MM-dd HH:mm:ss'}}" id="inpend" readonly>-->
 					<!--timer-->
-					<div class="form-group">
-						<label for="dtp_input1" class="col-md-2 control-label">到期时间:</label>
+					<div class="form-group" style="margin-bottom: 0;width:530px;height: 40px;margin-left: 98px;">
+						<label for="dtp_input1" class="col-md-2 control-label" style="margin: 6px 0 0 0;">到期时间:</label>
 						<div class="input-group date form_datetime2 col-md-5" data-date="2017-03-31T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
 							<input class="form-control" size="16" type="text"  id="daoqimm" placeholder="{{item.daoqi | date:'yyyy-MM-dd HH:mm'}}" readonly>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 							<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
 						</div>
 						<input type="hidden" id="dtp_input1" value="" /><br/>
+						
 					</div>
 					<!--timer-->
+				</li>
+				<li style="margin: 10px 0;">
+					<a href="javascript:;" class="qx_xz" ng-click="qx_click()">续住</a>
+					<div class="qx_tk" ng-show="qxshow">
+						<div>
+							<label for="" style="float: left;margin: 6px 5px 0 5px;">入住时间</label><input type="text" value="{{item.ruzhu | date:'yyyy-MM-dd HH:mm'}}" disabled="" id="xuruzhu"/>
+							<!--timer-->
+							<div class="form-group" style="width: 530px;">
+								<label for="dtp_input1" class="col-md-2 control-label" style="margin: 6px 0 0 0;">到期时间:</label>
+								<div class="input-group date form_datetime3 col-md-5" data-date="2017-03-31T05:25:07Z" data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1">
+									<input class="form-control" size="16" type="text" id="xuzhuNew"  readonly>
+									<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span>
+									</span>
+										<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+								</div>
+								<input type="hidden" id="dtp_input1" value="" /><br/>
+							</div>
+							<!--timer-->
+						</div>
+
+						<a href="javasript:;" class="qx_qd" style="margin-left: 118px;" ng-click="timrNew()">确定</a>
+						<a href="javasript:;" class="qx_qd" ng-click="qx_clicka()">取消</a>
+					</div>
 				</li>
 			</ul>
 		</form>

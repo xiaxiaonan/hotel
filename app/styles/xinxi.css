@@ -260,3 +260,50 @@ body{
 	color: #ccc;
 	cursor: pointer;
 }
+.qx_xz{
+	display: block;
+	margin: 0 auto;
+	font-size: 16px;
+	width: 60px;
+	height: 42px;
+	line-height: 42px;
+	text-align: center;
+	background: #2B669A;
+	border-radius: 5px;
+	color: #fff;
+}
+.qx_xz:hover{
+	background: #337AB7;
+	color: #fff;
+}
+.qx_tk{
+	width: 500px;
+	height: 125px;
+	padding-top: 15px;
+	background: #fff;
+	border: 1px solid red;
+	border-radius: 10px;
+	position: fixed;
+	top: 50%;
+	left: 30%;
+	z-index: 9;
+}
+.qx_tk>div{
+	height: 42px;
+}
+.qx_qd{
+	display: block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 18px;
+	background: #0088CC;
+	color: #fff;
+	border-radius: 5px;
+	float: left;
+	margin: 0 30px;
+}
+.qx_qd:hover{
+	color: #fff;
+}
