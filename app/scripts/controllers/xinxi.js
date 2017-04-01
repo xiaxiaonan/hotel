@@ -81,31 +81,17 @@ angular.module('hotelApp')
 		$scope.ruzhubaocun = function(id) {
 			//保存时间
 			//日期对象
-					function getDate(strDate) {
-						var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
-							function(a) {
-								return parseInt(a, 10) - 1;
-							}).match(/\d+/g) + ')');
-						return date;
-					};
+					var ruzhuTimer = $("#ruzhumm").val();
+					var daoqiTimer = $("#daoqimm").val();
+                    $scope.ruzhuTimer1 = Date.parse(new Date(ruzhuTimer));
+                     $scope.ruzhuTimer2 = Date.parse(new Date(daoqiTimer));
 					//转化成时间戳
-					var date1 = getDate($("#ruzhumm").val());
-					var date2 = getDate($("#daoqimm").val());
-					date1 = new Date(date1);
-					date2 = new Date(date2);
-//					window.localStorage.ruzhuTimer = date1.valueOf()
-//					window.localStorage.daoqiTimer = date2.valueOf()
-					$scope.ruzhupp=date1.valueOf()
-					$scope.daoqipp=date2.valueOf()
-
-					//console.log(localStorage.ruzhuTimer)
-					//console.log(localStorage.daoqiTimer)
 					
 			//保存时间
 			//计算房费
-			window.localStorage.fangfei = $scope.item.yajin * parseInt(($scope.daoqipp- $scope.ruzhupp) / 1000 / 86400)
+			$scope.fangfeiM = $scope.item.yajin * parseInt(( $scope.ruzhuTimer2-  $scope.ruzhuTimer1) / 1000 / 86400)
 
-//				window.localStorage.fangfei = $scope.item.yajin * parseInt((localStorage.daoqiTimer - localStorage.ruzhuTimer) / 1000 / 86400)
+
 
 //计算房费
 				if($scope.item.name && $scope.item.tel && $scope.item.shenfenzhenghao) {
@@ -118,9 +104,9 @@ angular.module('hotelApp')
 							"tel": $scope.item.tel,
 							"fangjianhao": $scope.item.fangjianhao,
 							"shenfenzhenghao": $scope.item.shenfenzhenghao,
-							"ruzhu": $scope.ruzhupp,
-							"daoqi": $scope.daoqipp,
-							"fangfei": localStorage.fangfei,
+							"ruzhu":$scope.ruzhuTimer1,
+							"daoqi": $scope.ruzhuTimer2,
+							"fangfei": $scope.fangfeiM,
 							"zhuangtai": $scope.item.zhuangtai,
 							"uid": localStorage.getItem("user")
 						}
@@ -158,26 +144,17 @@ angular.module('hotelApp')
 $scope.timrNew=function(){
 	//保存时间
 			//日期对象
-					function getDate(strDate) {
-						var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
-							function(a) {
-								return parseInt(a, 10) - 1;
-							}).match(/\d+/g) + ')');
-						return date;
-					};
+					var ruzhuTimerM = $("#ruzhuNew").val();
+					var daoqiTimerM = $("#xuzhuNew").val();
+                     $scope.ruzhuTimer1 = Date.parse(new Date(ruzhuTimerM));
+                     $scope.xuzhuTimer2 = Date.parse(new Date(daoqiTimerM));
 					//转化成时间戳
-					var date3 = getDate($("#xuruzhu").val());
-					var date4 = getDate($("#xuzhuNew").val());
-					date3 = new Date(date3);
-					date4 = new Date(date4);
-					$scope.ruzhuNew=date3.valueOf()
-					$scope.daoqiNew=date4.valueOf()
-
 					
 			//保存时间
-	//计算房费
-			
-				$scope.fangfeiNew = $scope.item.yajin * parseInt(($scope.daoqiNew- $scope.ruzhuNew) / 1000 / 86400)
+			//计算房费
+			$scope.fangfeiNew = $scope.item.yajin * parseInt(( $scope.xuzhuTimer2-  $scope.ruzhuTimer1) / 1000 / 86400)
+
+
 
 //计算房费
 	
@@ -185,7 +162,7 @@ $scope.timrNew=function(){
 		url: "http://47.88.16.225:403/room?id=" + $scope.id,
 		method: "put",
 		data:{
-			"daoqi": $scope.daoqiNew,
+			"daoqi": $scope.xuzhuTimer2,
 			"fangfei": $scope.fangfeiNew,
 		}
 	}).then(function(){
@@ -208,8 +185,12 @@ $scope.timrNew=function(){
 		}
 		$scope.xntrue = function() {
 			$scope.xntruetui = false;
+			
+			
 			//提交到room2
 			$scope.tuihide = function() {
+				    $scope.ruzhuHO=$("#ruzhumm").attr("placeholder");
+			        $scope.daoqiHO=$("#daoqimm").attr("placeholder");
 					$scope.tuihide = true;
 					$http({
 						url: "http://47.88.16.225:403/room2",
@@ -220,10 +201,12 @@ $scope.timrNew=function(){
 							"tel": $scope.item.tel,
 							"fangjianhao": $scope.item.fangjianhao,
 							"shenfenzhenghao": $scope.item.shenfenzhenghao,
-							"ruzhu": localStorage.ruzhuTimer,
-							"daoqi": localStorage.daoqiTimer,
+							"ruzhu": $scope.ruzhuHO,
+							"daoqi":  $scope.daoqiHO,
 							"fangfei": $scope.item.fangfei,
 							"zhuangtai": $scope.item.zhuangtai,
+							"leixing":$scope.item.leixing,
+							"yajin":$scope.item.yajin,
 							"uid": localStorage.getItem("user")
 						}
 					}).then(function(data) {
